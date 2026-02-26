@@ -1,0 +1,54 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+@use "../../styles/mixins" as *;
+
+.button {
+    font-family: $font-family-primary;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+
+    &--primary {
+        background-color: $color-primary-indigo;
+        color: $color-primary-white;
+
+        &:hover {
+            opacity: 80%;
+        }
+    }
+
+    &--secondary {
+        background-color: $color-primary-white;
+        color: $color-secondary-slate;
+        border: 1px solid $color-secondary-cloud;
+
+        &:hover {
+            background: $color-primary-white;
+            box-shadow: 0px 0px 0px 1px $color-secondary-slate inset,
+                0px 0px 0px 3px $color-primary-white inset;
+        }
+    }
+
+    &--delete {
+        background-color: $color-supporting-red;
+        color: $color-primary-white;
+
+        &:hover {
+            opacity: 80%;
+        }
+    }
+
+    &:disabled {
+        background-color: $color-secondary-cloud;
+        color: $color-secondary-slate;
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}
