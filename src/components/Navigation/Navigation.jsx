@@ -1,25 +1,36 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Navigation.scss";
 
 function Navigation() {
 return (
-    <header className="nav">
-    <div className="nav__inner">
-        <div className="nav__brand">CrossCollab</div>
+    <div className="nav">
+    <div className="nav__brand">Algis</div>
 
-        <nav className="nav__links">
-        <NavLink to="/" className="nav__link">
-            Dashboard
-        </NavLink>
-        <NavLink to="/transactions" className="nav__link">
-            Transactions
-        </NavLink>
-        <NavLink to="/transactions" className="nav__link">
-            Fraud Detection
-        </NavLink>
-        </nav>
+    <div className="nav__search">
+        <input className="nav__search-input" placeholder="Search..." />
     </div>
-    </header>
+
+    <nav className="nav__links">
+        <NavLink
+        to="/"
+        className={({ isActive }) =>
+            `nav__link ${isActive ? "nav__link--active" : ""}`
+        }
+        end
+        >
+        Dashboard
+        </NavLink>
+
+        <NavLink
+        to="/transactions"
+        className={({ isActive }) =>
+            `nav__link ${isActive ? "nav__link--active" : ""}`
+        }
+        >
+        Transactions
+        </NavLink>
+    </nav>
+    </div>
 );
 }
 

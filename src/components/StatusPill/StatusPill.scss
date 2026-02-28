@@ -1,0 +1,40 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: pxToRem(4) pxToRem(12);
+  border-radius: pxToRem(999);
+  font-weight: 600;
+  font-size: pxToRem(12);
+  line-height: pxToRem(18);
+  text-transform: uppercase;
+
+  &--allow {
+    background: $color-status-allow-bg;
+    color: $color-status-allow-text;
+  }
+
+  &--review {
+    background: $color-status-review-bg;
+    color: $color-status-review-text;
+  }
+
+  &--block {
+    background: $color-status-block-bg;
+    color: $color-status-block-text;
+  }
+
+  &--auto-block {
+    background: $color-status-auto-block-bg;
+    color: $color-status-auto-block-text;
+  }
+
+  &--escalation {
+    background: $color-status-escalation-bg;
+    color: $color-status-escalation-text;
+  }
+}

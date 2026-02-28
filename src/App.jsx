@@ -4,7 +4,9 @@ import Navigation from "./components/Navigation/Navigation";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import TransactionsPage from "./pages/TransactionsPage/TransactionsPage";
 import TransactionDetailsPage from "./pages/TransactionDetailsPage/TransactionDetailsPage";
+import Footer from './components/Footer/Footer';
 import { fetchUpdate } from "./utils/apiRequests";
+import AppLayout from "./components/AppLayout/AppLayout";
 
 function App() {
   const [transactions, setTransactions] = useState([]);
@@ -18,7 +20,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navigation />
+      <AppLayout>
       <Routes>
         {/* Dashboard */}
         <Route path="/" element={<DashboardPage />} />
@@ -32,6 +34,9 @@ function App() {
         {/* Catch-all redirect */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      <Footer />
+      </AppLayout>
+
     </BrowserRouter>
   );
 }
