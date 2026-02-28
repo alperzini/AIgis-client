@@ -1,13 +1,15 @@
-import './Footer.scss'
+import "./Footer.scss";
 
 function Footer() {
-return (
+  return (
     <footer className="footer">
-    <div className="footer__container">
-        <p className="footer__text">© InStock Inc. All Rights Reserved.</p>
-    </div>
+      <div className="footer__container">
+        <p className="footer__text">
+          © {new Date().getFullYear()} Algis Inc. All rights reserved.
+        </p>
+      </div>
     </footer>
-)
+  );
 }
 
-export default Footer
+export default Footer;

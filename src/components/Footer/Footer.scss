@@ -2,27 +2,24 @@
 @use "../../styles/mixins" as *;
 
 .footer {
-padding: 1.5rem 1rem;
-background-color: $color-light-grey;
-
-@include tablet {
-    padding: 2rem;
-}
-
-&__container {
-    @extend %wrapper;
-    text-align: center;
-}
-
-&__text {
-    margin: 0;
-    font-size: $text-size-m-p3;
-    line-height: $line-height-m-p3;
-    color: $color-slate;
-
-    @include tablet {
-    font-size: $text-size-dt-p3;
-    line-height: $line-height-dt-p3;
+    width: 100%;
+    background-color: #f8f9fb;
+    border-top: 1px solid #e5e7eb;
+    padding: 1rem 0;
+  
+    &__container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-}
-}
+  
+    &__text {
+      font-size: 0.875rem;
+      color: #6b7280;
+      margin: 0;
+      text-align: center;
+    }
+  }

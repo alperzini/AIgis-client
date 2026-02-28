@@ -5,6 +5,7 @@ import Navigation from "./components/Navigation/Navigation";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import TransactionsPage from "./pages/TransactionsPage/TransactionsPage";
 import TransactionDetailsPage from "./pages/TransactionDetailsPage/TransactionDetailsPage";
+import Footer from './components/Footer/Footer';
 
 function App() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;  // http://localhost:
@@ -34,6 +35,7 @@ function App() {
         <Route path="/expenses/:id" element={<TransactionDetailsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      <Footer />
 
     </BrowserRouter>
   );
