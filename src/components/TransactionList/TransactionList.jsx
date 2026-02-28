@@ -16,7 +16,7 @@ const TransactionList = ({ transactions }) => {
         <TransactionCard 
           key={tx.id} 
           transaction={tx}
-          onClick={() => navigate(`/expenses/${tx.id}`)}
+          onClick={() => navigate(`/transactions/${tx.id}`)}
         />
       ))}
     </div>
