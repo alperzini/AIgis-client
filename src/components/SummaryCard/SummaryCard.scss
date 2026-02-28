@@ -1,0 +1,35 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+@use "../../styles/mixins" as *;
+
+.summary-card {
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+
+    &--small {
+        justify-content: flex-start;
+        padding-left: pxToRem(24);
+        padding-top: pxToRem(8);
+        align-items: flex-start;
+        gap: pxToRem(12);
+    }
+
+    &--large {}
+
+    &__header {
+        &--small {
+            padding: pxToRem(4) 0;
+        }
+
+        &--large {}
+    }
+
+    &__content {
+        &--small {
+            padding: pxToRem(4) 0;
+        }
+
+        &--large {}
+    }
+}
