@@ -3,30 +3,33 @@
 @use "../../styles/mixins" as *;
 
 .tag {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: pxToRem(86);
-    height: pxToRem(24);
-    padding: pxToRem(4) pxToRem(8);
-    border-radius: pxToRem(20);
-    font-weight: 600;
-    font-size: pxToRem(11);
-    line-height: pxToRem(16);
-    @include tablet {
-        width: pxToRem(92);
-        height: pxToRem(26);
-        font-size: pxToRem(12);
-        line-height: pxToRem(18);
-    }
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 
-    &--in-stock {
-        background-color: #15846312;
-        color: $color-supporting-green;
-    }
+  min-width: pxToRem(86);
+  height: pxToRem(24);
+  padding: pxToRem(4) pxToRem(10);
+  border-radius: pxToRem(20);
 
-    &--out-of-stock {
-        background-color: #C9451512;
-        color: $color-supporting-red;
-    }
+  font-weight: 600;
+  font-size: pxToRem(11);
+  line-height: pxToRem(16);
+
+  @include tablet {
+    min-width: pxToRem(92);
+    height: pxToRem(26);
+    font-size: pxToRem(12);
+    line-height: pxToRem(18);
+  }
+
+  &--in-stock {
+    background-color: rgba($color-success-300, 0.18);
+    color: $color-success-500;
+  }
+
+  &--out-of-stock {
+    background-color: rgba($color-failure-300, 0.18);
+    color: $color-failure-500;
+  }
 }

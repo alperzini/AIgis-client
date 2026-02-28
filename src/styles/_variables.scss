@@ -1,7 +1,3 @@
-$font-family-primary: "Titillium Web", Arial, sans-serif;
-
-$max-width-md: 1045px;
-$max-width-lg: 1440px;
 
 // $color-primary-black: #13182C;
 // $color-primary-indigo: #2E66E5;
@@ -14,26 +10,123 @@ $max-width-lg: 1440px;
 // $color-supporting-red: #C94515;
 
 
-//Meghan Working on it
-$color-primary-black: #13182C;
-$color-primary-link: #2E66E5;
-$color-primary-white: #FFFFFF;
-$color-secondary-slate: #5C667E;
-$color-secondary-cloud: #BDC5D5;
-$color-background-graphite: #232940;
-$color-background-light-grey: #F7F8F9;
-$color-supporting-green: #158463;
-$color-supporting-red: #C94515;
+// =====================
+// Brand — Primary
+// =====================
+$color-primary-100: #7DACED;
+$color-primary-200: #2553B7;
+$color-primary-300: #211C88;
+$color-primary-400: #0C085C;
+$color-primary-500: #030036;
 
+// =====================
+// Brand — Secondary
+// =====================
+$color-secondary-100: #FFF3F1;
+$color-secondary-200: #FFE0DA;
+$color-secondary-300: #FBC1B5;
+$color-secondary-400: #FF6F62;
+$color-secondary-500: #D74538;
 
-$color-primary-risk-high: #C94515;
-$color-secondary-risk-high: #C94515;
-$color-primary-risk-medium: #C94515;
-$color-secondary-risk-medium: #C94515;
-$color-primary-risk-low: #C94515;
-$color-secondary-risk-low: #C94515;
+// =====================
+// Supporting (Accent / Highlight)
+// =====================
+$color-supporting-100: #FFEEBD;
+$color-supporting-200: #FFDA6C;
+$color-supporting-300: #FFBF00;
+$color-supporting-400: #CC7700;
+$color-supporting-500: #974900;
 
+// =====================
+// Success
+// =====================
+$color-success-100: #CAFFD3;
+$color-success-200: #9BE4A7;
+$color-success-300: #60D773;
+$color-success-400: #31A845;
+$color-success-500: #08711A;
 
-$color-status-1: #DADADA;
-$color-status-1: #DADADA;
-$color-status-1: #DADADA;
+// =====================
+// Warning
+// =====================
+$color-warning-100: #FFEEBD;
+$color-warning-200: #FFEE6C;
+$color-warning-300: #FFD52B;
+$color-warning-400: #EFB72B;
+$color-warning-500: #AF7D00;
+
+// =====================
+// Failure
+// =====================
+$color-failure-100: #FFCDC7;
+$color-failure-200: #FA8F83;
+$color-failure-300: #E85342;
+$color-failure-400: #BE1B0D;
+$color-failure-500: #91271B;
+
+// =====================
+// Neutral
+// =====================
+$color-neutral-100: #F1F5F9;
+$color-neutral-200: #CBD5E1;
+$color-neutral-300: #64748B;
+$color-neutral-400: #334155;
+$color-neutral-500: #0F172A;
+
+// =====================
+// Shades
+// =====================
+$color-white: #FFFFFF;
+$color-black: #000000;
+$color-surface: #F3F5F8;
+
+// =====================
+// Gradients (raw)
+// =====================
+$gradient-1-low: $color-primary-500;
+$gradient-1-high: $color-primary-200;
+
+$gradient-2-low: $color-secondary-200;
+$gradient-2-high: $color-secondary-400;
+
+$gradient-3-low: $color-primary-200;
+$gradient-3-high: $color-secondary-200;
+
+// Optional: ready-to-use gradient strings
+$bg-gradient-1: linear-gradient(135deg, $gradient-1-low 0%, $gradient-1-high 100%);
+$bg-gradient-2: linear-gradient(135deg, $gradient-2-low 0%, $gradient-2-high 100%);
+$bg-gradient-3: linear-gradient(135deg, $gradient-3-low 0%, $gradient-3-high 100%);
+
+// =====================
+// Semantic tokens (use these in components)
+// =====================
+$color-bg: $color-neutral-100;
+$color-card: $color-white;
+$color-border: $color-neutral-200;
+
+$color-text: $color-neutral-500;
+$color-text-muted: $color-neutral-300;
+
+$color-link: $color-primary-200;
+
+$color-status-allow-bg: rgba($color-success-300, 0.18);
+$color-status-allow-text: $color-success-500;
+
+$color-status-review-bg: rgba($color-warning-300, 0.25);
+$color-status-review-text: $color-warning-500;
+
+$color-status-block-bg: rgba($color-failure-300, 0.18);
+$color-status-block-text: $color-failure-500;
+
+$color-status-auto-block-bg: rgba($color-failure-400, 0.18);
+$color-status-auto-block-text: $color-failure-500;
+
+$color-status-escalation-bg: rgba($color-secondary-400, 0.16);
+$color-status-escalation-text: $color-secondary-500;
+
+// =====================
+// Layout / type (keep yours or adjust later)
+// =====================
+$max-width-md: 1045px;
+$max-width-lg: 1440px;
+$font-family-primary: "Titillium Web", Arial, sans-serif;

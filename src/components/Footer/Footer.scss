@@ -1,25 +1,24 @@
 @use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
 @use "../../styles/mixins" as *;
 
 .footer {
-    width: 100%;
-    background-color: #f8f9fb;
-    border-top: 1px solid #e5e7eb;
-    padding: 1rem 0;
-  
-    &__container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    &__text {
-      font-size: 0.875rem;
-      color: #6b7280;
-      margin: 0;
-      text-align: center;
-    }
+  width: 100%;
+  background-color: $color-surface;
+  border-top: 1px solid $color-border;
+  padding: pxToRem(16) 0;
+
+  &__container {
+    @include wrapper($max-width-lg, 0 auto, pxToRem(0) pxToRem(24));
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
+  &__text {
+    font-size: pxToRem(14);
+    color: $color-text-muted;
+    margin: 0;
+    text-align: center;
+  }
+}

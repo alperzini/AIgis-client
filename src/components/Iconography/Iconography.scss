@@ -1,32 +1,27 @@
 @use "../../styles/variables" as *;
 @use "../../styles/functions" as *;
-@use "../../styles/mixins" as *;
 
 .icon {
-    display: inline-block;
-    vertical-align: middle;
-    width: pxToRem(24);
-    height: pxToRem(24);
+  display: inline-block;
+  vertical-align: middle;
+  width: pxToRem(24);
+  height: pxToRem(24);
 
-    &--default {
-        fill: $color-secondary-slate;
+  &--active {
+    path {
+      fill: $color-link;
     }
+  }
 
-    &--active {
-        path {
-            fill: $color-primary-indigo;
-        }
+  &--delete {
+    path {
+      fill: $color-failure-400;
     }
+  }
 
-    &--delete {
-        path {
-            fill: $color-supporting-red;
-        }
+  &--error {
+    path {
+      fill: $color-failure-400;
     }
-
-    &--error {
-        path {
-            fill: $color-supporting-red;
-        }
-    }
+  }
 }
