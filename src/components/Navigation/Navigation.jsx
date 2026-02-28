@@ -11,10 +11,10 @@ return (
         <NavLink to="/" className="nav__link">
             Dashboard
         </NavLink>
-        <NavLink to="/transactions" className="nav__link">
+        <NavLink to="/expenses" className="nav__link">
             Transactions
         </NavLink>
-        <NavLink to="/transactions" className="nav__link">
+        <NavLink to="/expenses" className="nav__link">
             Fraud Detection
         </NavLink>
         </nav>
