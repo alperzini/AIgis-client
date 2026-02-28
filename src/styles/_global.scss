@@ -2,10 +2,24 @@
 @use "./variables" as *;
 @use "./functions" as *;
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
 body {
-    font-family: $font-family-primary;
-    color: $color-primary-black;
-    background-color: $color-background-light-grey;
-    margin: 0;
-    box-sizing: border-box;
+  height: 100%;
+}
+
+body {
+  font-family: $font-family-primary;
+  color: $color-text;
+  background-color: $color-bg;
+  margin: 0;
+}
+
+a {
+  color: $color-link;
 }

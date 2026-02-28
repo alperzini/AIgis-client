@@ -1,37 +1,37 @@
 @use "../../styles/variables" as *;
 @use "../../styles/functions" as *;
+@use "../../styles/mixins" as *;
 
 .nav {
-background: $color-background-graphite;
-color: $color-primary-white;
-padding: pxToRem(16);
+  background: $color-neutral-500;
+  color: $color-white;
+  padding: pxToRem(16);
 
-&__inner {
+  &__inner {
+    @include wrapper($max-width-lg, 0 auto, 0);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: $max-width-lg;
-    margin: 0 auto;
-}
+  }
 
-&__brand {
+  &__brand {
     font-weight: 600;
     letter-spacing: 0.5px;
-}
+  }
 
-&__links {
+  &__links {
     display: flex;
     gap: pxToRem(16);
-}
+  }
 
-&__link {
-    color: $color-primary-white;
+  &__link {
+    color: $color-white;
     text-decoration: none;
     opacity: 0.8;
 
     &.active {
-    opacity: 1;
-    text-decoration: underline;
+      opacity: 1;
+      text-decoration: underline;
     }
-}
+  }
 }

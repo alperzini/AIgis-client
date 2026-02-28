@@ -1,0 +1,36 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+
+.page {
+  background: $color-card;
+  border: 1px solid $color-border;
+  border-radius: pxToRem(12);
+  padding: pxToRem(24);
+  min-height: calc(100vh - #{pxToRem(40)});
+}
+
+.page__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: pxToRem(16);
+  margin-bottom: pxToRem(20);
+}
+
+.page__title {
+  margin: 0;
+  font-size: pxToRem(24);
+  line-height: pxToRem(32);
+  font-weight: 600;
+  color: $color-text;
+}
+
+.page__right {
+  display: flex;
+  align-items: center;
+  gap: pxToRem(12);
+}
+
+.page__body {
+  width: 100%;
+}

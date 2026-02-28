@@ -1,19 +1,19 @@
 import { useParams } from "react-router-dom";
+import PageWrapper from "../../components/PageWrapper/PageWrapper";
 import "./TransactionDetailsPage.scss";
 
 function TransactionDetailsPage() {
-const { transactionId } = useParams();
+  const { transactionId } = useParams();
 
-return (
+  return (
     <main className="transaction-details-page">
-    <h1 className="transaction-details-page__title">
-        Transaction Details
-    </h1>
-    <p className="transaction-details-page__text">
-        Transaction ID: {transactionId}
-    </p>
+      <PageWrapper title="Transaction Details">
+        <p className="transaction-details-page__text">
+          Transaction ID: {transactionId}
+        </p>
+      </PageWrapper>
     </main>
-);
+  );
 }
 
 export default TransactionDetailsPage;
