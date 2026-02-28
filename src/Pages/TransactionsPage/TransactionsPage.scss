@@ -1,6 +1,11 @@
 @use "../../styles/variables" as *;
 @use "../../styles/functions" as *;
 
+/* {
+    border: 1px red solid;
+}
+    */
+
 .transactions-page {
 padding: pxToRem(24);
 
