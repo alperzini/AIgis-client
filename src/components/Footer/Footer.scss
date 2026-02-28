@@ -1,0 +1,24 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+@use "../../styles/mixins" as *;
+
+.footer {
+  width: 100%;
+  background-color: $color-surface;
+  border-top: 1px solid $color-border;
+  padding: pxToRem(16) 0;
+
+  &__container {
+    @include wrapper($max-width-lg, 0 auto, pxToRem(0) pxToRem(24));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__text {
+    font-size: pxToRem(14);
+    color: $color-text-muted;
+    margin: 0;
+    text-align: center;
+  }
+}

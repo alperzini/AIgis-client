@@ -1,0 +1,24 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+
+.layout {
+  display: grid;
+  grid-template-columns: pxToRem(240) 1fr;
+  min-height: 100vh;
+  background: $color-bg; 
+}
+
+.layout__sidebar {
+  background: $color-neutral-500; 
+  color: $color-white;
+  border-right: 1px solid rgba($color-black, 0.08);
+}
+
+.layout__content {
+  padding: pxToRem(24);
+}
+
+.layout__content-inner {
+  max-width: $max-width-lg;
+  margin: 0 auto;
+}
