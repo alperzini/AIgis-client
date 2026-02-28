@@ -1,0 +1,68 @@
+@use "../../styles/functions" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.transaction-card {
+    display: flex;
+    flex-direction: column;
+    font-family: $font-family-primary;
+    background-color: rgb(84, 84, 84);
+    margin-bottom: 1rem;
+    &--low {
+        background-color: $color-supporting-green;
+        border: 1px solid #28a745;
+    }
+    &--medium {
+        background-color: $color-supporting-yellow;
+        border: 1px solid #ff9800;
+    }
+    &--high {
+        background-color: $color-supporting-red;
+        border: 1px solid #f44336;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &____icon-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    &__expanded {
+        margin-top: 20px;
+        padding-top: 16px;
+        border-top: 1px solid #eee;
+    }
+
+    &__actions {
+        display: flex;
+        gap: 12px;
+        margin: 16px 0;
+    }
+
+    &__escalation {
+        display: flex;
+        gap: 16px;
+    }
+
+    .btn--approve {
+        background: #6b8e5a;
+        color: white;
+    }
+
+    .btn--block {
+        background: #c27c5e;
+        color: white;
+    }
+
+    .btn--escalate {
+        background: #0f7c7a;
+        color: white;
+    }
+
+}
