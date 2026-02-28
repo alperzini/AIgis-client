@@ -1,40 +1,37 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import axios from "axios";
 import Navigation from "./components/Navigation/Navigation";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import TransactionsPage from "./pages/TransactionsPage/TransactionsPage";
 import TransactionDetailsPage from "./pages/TransactionDetailsPage/TransactionDetailsPage";
+import { fetchUpdate } from "./utils/apiRequests";
 
 function App() {
-  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;  // http://localhost:
-  const PORT = import.meta.env.VITE_PORT;                // 8080
+  const [transactions, setTransactions] = useState([]);
 
-  const [transactions, settransactions] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const transactionsRes = await axios.get(`${BACKEND_URL}${PORT}/transactions`);
-        settransactions(transactionsRes.data);
-      } catch (error) {
-        console.error("Error fetching transactions:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+    useEffect(() => {
+      fetchUpdate("transactions", (data) => {
+        console.log("DATA RECEIVED FROM BACKEND:", data);
+        setTransactions(data);
+      });
+    }, []);
 
   return (
     <BrowserRouter>
       <Navigation />
       <Routes>
+        {/* Dashboard */}
         <Route path="/" element={<DashboardPage />} />
-        <Route path="/transactions" element={<TransactionsPage transactions={transactions} settransactions={settransactions} />} />
+
+        {/* Transactions List */}
+        <Route path="/transactions" element={<TransactionsPage transactions={transactions} setTransactions={setTransactions} />} />
+
+        {/* Single Transaction Details */}
         <Route path="/transactions/:id" element={<TransactionDetailsPage />} />
+
+        {/* Catch-all redirect */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-
     </BrowserRouter>
   );
 }
