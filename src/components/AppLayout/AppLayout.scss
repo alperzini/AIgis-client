@@ -4,12 +4,15 @@
 .app-layout {
   display: grid;
   grid-template-columns: pxToRem(320) 1fr;
-  min-height: 100vh;
+
+  height: 100vh; /* lock layout to viewport */
+  overflow: hidden; /* prevents sidebar from stretching */
+
   background: $color-bg;
 }
 
 .app-layout__right {
-  min-height: 100vh;
+  height: 100vh;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -29,7 +32,9 @@
   flex: 1;
   padding: pxToRem(24);
   min-width: 0;
-  
+
+  min-height: 0; /* important: allows scrolling */
+  overflow: auto; /* scrolling happens here */
 }
 
 .app-layout__page {
@@ -37,10 +42,12 @@
   border: 1px solid $color-border;
   border-radius: pxToRem(16);
   padding: pxToRem(24);
-  min-height: calc(100vh - #{pxToRem(160)});
+
+  min-width: 0;
+
   animation: pageIn 180ms ease-out;
   will-change: transform, opacity;
-  min-width: 0;
+
 }
 
 @keyframes pageIn {

@@ -2,11 +2,14 @@
 @use "../../styles/functions" as *;
 
 .sidebar {
-  height: 100%;
-  min-height: 100vh;
-  display: flex;
+  position: sticky;
+  top: 0;
+
+  height: 100vh; /* lock to viewport */
   width: pxToRem(320);
+  display: flex;
   overflow: hidden;
+  flex: 0 0 pxToRem(320); /* prevent stretching with content */
 }
 
 .sidebar__rail {
@@ -68,6 +71,9 @@
 
 .sidebar__panel {
   flex: 1;
+  min-height: 0; /* important for scrolling */
+  overflow: auto; /* panel scrolls if content ever grows */
+
   background: linear-gradient(0deg, $gradient-1-low 0%, $gradient-1-high 100%);
   padding: pxToRem(18) pxToRem(16);
   color: $color-white;
@@ -101,7 +107,8 @@
   color: rgba($color-white, 0.95);
   background: transparent;
   border: 1px solid transparent;
-  transition: background 180ms ease, transform 180ms ease, border-color 180ms ease, color 180ms ease;
+  transition: background 180ms ease, transform 180ms ease, border-color 180ms ease,
+    color 180ms ease;
 }
 
 .sidebar__link:hover {
