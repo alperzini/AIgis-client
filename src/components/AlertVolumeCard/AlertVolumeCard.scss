@@ -33,20 +33,17 @@
   overflow: hidden;
 }
 
-/* Static Image — Exact Figma Size */
 .alert-volume-card__img {
   width: pxToRem(584);
   height: pxToRem(292);
   display: block;
   border-radius: pxToRem(12);
 
-  /* Smooth load animation */
   opacity: 0;
   transform: translateY(pxToRem(8));
   animation: chartFadeIn 420ms ease-out forwards;
 }
 
-/* Smooth appearance */
 @keyframes chartFadeIn {
   to {
     opacity: 1;
