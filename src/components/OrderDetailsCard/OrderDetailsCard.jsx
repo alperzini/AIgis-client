@@ -10,7 +10,7 @@ function OrderDetailsCard({
     <section className="order-card" aria-labelledby="order-card-title">
       <header className="order-card__header">
         <Typography
-          variant="h2"
+          variant="h3"
           as="h2"
           className="order-card__title"
           id="order-card-title"

@@ -86,7 +86,7 @@ function NotesThread() {
     <aside className="notes" aria-labelledby="notes-title">
       <Typography
         id="notes-title"
-        variant="h2"
+        variant="h3"
         as="h2"
         className="notes__header"
       >
