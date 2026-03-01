@@ -1,0 +1,12 @@
+@use "../../styles/functions" as *;
+
+.brand {
+  display: flex;
+  align-items: center;
+
+  &__mark {
+    height: pxToRem(34);
+    width: auto;
+    display: block;
+  }
+}
