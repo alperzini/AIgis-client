@@ -1,0 +1,51 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+
+.order-card {
+  background: $color-white;
+  border: 1px solid rgba($color-black, 0.08);
+  border-radius: pxToRem(18);
+  overflow: hidden;
+  box-shadow: 0 pxToRem(10) pxToRem(30) rgba($color-black, 0.06);
+}
+
+.order-card__header {
+  padding: pxToRem(14) pxToRem(18);
+  background: $color-primary-100;
+}
+
+.order-card__title {
+  color: $color-white;
+  font-weight: 700;
+}
+
+.order-card__body {
+  padding: pxToRem(16) pxToRem(18);
+  background: rgba($color-black, 0.02);
+}
+
+.order-card__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: pxToRem(16);
+}
+
+.order-card__label {
+  min-width: pxToRem(220);
+  color: rgba($color-text, 0.85);
+  font-weight: 700;
+}
+
+.order-card__value {
+  text-align: right;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.order-card__rule {
+  height: pxToRem(0.25);
+  margin: pxToRem(14) 0;
+  border-radius: pxToRem(2);
+  background: rgba($color-primary-500, 0.55);
+}
