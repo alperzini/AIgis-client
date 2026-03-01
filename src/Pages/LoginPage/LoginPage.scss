@@ -1,0 +1,77 @@
+@use "../../styles/functions" as *;
+@use "../../styles/variables" as *;
+
+.login {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: $bg-gradient-1;
+  padding: pxToRem(24);
+}
+
+.login__card {
+  width: min(pxToRem(520), 100%);
+  background: rgba($color-white, 0.1);
+  border: 1px solid rgba($color-white, 0.18);
+  border-radius: pxToRem(22);
+  padding: pxToRem(28);
+  backdrop-filter: blur(pxToRem(10));
+  text-align: center;
+}
+
+.login__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: pxToRem(14);
+  margin-bottom: pxToRem(18);
+  color: $color-white;
+}
+
+.login__title {
+  margin: 0;
+  font-size: pxToRem(34);
+  font-weight: 800;
+}
+
+.login__actions {
+  display: grid;
+  gap: pxToRem(12);
+  justify-items: center;
+  margin-top: pxToRem(18);
+}
+
+.login__btn {
+  height: pxToRem(44);
+  padding: 0 pxToRem(18);
+  border-radius: pxToRem(999);
+  border: 1px solid rgba($color-white, 0.18);
+  background: rgba($color-white, 0.18);
+  color: $color-white;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: pxToRem(10);
+}
+
+.login__btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: pxToRem(18);
+  height: pxToRem(18);
+  border-radius: 50%;
+  border: pxToRem(2) solid rgba($color-white, 0.35);
+  border-top-color: $color-white;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

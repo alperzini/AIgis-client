@@ -14,25 +14,36 @@ function Sidebar({ onSignOut }) {
     `sidebar__rail-btn ${isActive ? "sidebar__rail-btn--active" : ""}`;
 
   return (
-    <aside className="sidebar">
-      <div className="sidebar__rail">
-        <nav className="sidebar__rail-nav">
-          <NavLink to="/" end className={getRailClass}>
+    <aside className="sidebar" aria-label="Sidebar">
+      <div className="sidebar__rail" aria-label="Quick navigation">
+        <nav className="sidebar__rail-nav" aria-label="Primary (icons)">
+          <NavLink to="/" end className={getRailClass} aria-label="Dashboard">
             <img className="sidebar__rail-icon" src={dashboardIcon} alt="" />
           </NavLink>
 
-          <NavLink to="/transactions" className={getRailClass}>
+          <NavLink
+            to="/transactions"
+            className={getRailClass}
+            aria-label="Transactions"
+          >
             <img className="sidebar__rail-icon" src={transactionIcon} alt="" />
           </NavLink>
         </nav>
 
-        <button
-          type="button"
-          className="sidebar__rail-btn"
-          onClick={onSignOut}
-        >
-          <img className="sidebar__rail-icon" src={signOutIcon} alt="" />
-        </button>
+        <div className="sidebar__rail-signout">
+          <button
+            type="button"
+            className="sidebar__rail-btn sidebar__rail-btn--signout"
+            onClick={onSignOut}
+            aria-label="Sign out"
+          >
+            <img className="sidebar__rail-icon" src={signOutIcon} alt="" />
+          </button>
+
+          <div className="sidebar__tip" role="tooltip">
+            Sign out
+          </div>
+        </div>
       </div>
 
       <div className="sidebar__panel">
@@ -46,7 +57,7 @@ function Sidebar({ onSignOut }) {
             variant="light"
           />
 
-          <nav className="sidebar__nav">
+          <nav className="sidebar__nav" aria-label="Primary (labels)">
             <NavLink to="/" end className={getLinkClass}>
               <span className="sidebar__text">Dashboard</span>
             </NavLink>

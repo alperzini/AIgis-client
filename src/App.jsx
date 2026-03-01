@@ -7,6 +7,9 @@ import TransactionDetailsPage from "./pages/TransactionDetailsPage/TransactionDe
 import { fetchUpdate } from "./utils/apiRequests";
 import AppLayout from "./components/AppLayout/AppLayout";
 
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+
 function App() {
   const [transactions, setTransactions] = useState([]);
 
@@ -20,6 +23,8 @@ function App() {
   return (
     <BrowserRouter>
    <Routes>
+    <Route path="/login" element={<LoginPage />} />
+    <Route element={<ProtectedRoute/>}>
        <Route element={<AppLayout />}>
           {/* Dashboard */}
           <Route path="/" element={<DashboardPage />} />
@@ -44,7 +49,8 @@ function App() {
           {/* Catch-all redirect */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
-       </Routes>     
+      </Route>
+      </Routes>     
     </BrowserRouter>
   );
 }
