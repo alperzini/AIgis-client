@@ -1,4 +1,3 @@
-import PageWrapper from "../../components/PageWrapper/PageWrapper";
 import "./DashboardPage.scss";
 
 function DashboardPage() {

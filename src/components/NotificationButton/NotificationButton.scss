@@ -1,0 +1,78 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+
+.notify {
+position: relative;
+}
+
+.notify__btn {
+width: pxToRem(40);
+height: pxToRem(40);
+border-radius: pxToRem(12);
+border: 1px solid rgba($color-black, 0.08);
+background: $color-white;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+}
+
+.notify__icon {
+width: pxToRem(20);
+height: pxToRem(20);
+display: block;
+}
+
+.notify__menu {
+position: absolute;
+top: calc(100% + #{pxToRem(10)});
+right: 0;
+width: pxToRem(280);
+background: $color-white;
+border: 1px solid rgba($color-black, 0.10);
+border-radius: pxToRem(14);
+box-shadow: 0 pxToRem(14) pxToRem(38) rgba($color-black, 0.16);
+overflow: hidden;
+z-index: 50;
+}
+
+.notify__menu-title {
+padding: pxToRem(12) pxToRem(14);
+font-size: pxToRem(13);
+font-weight: 700;
+color: $color-text;
+border-bottom: 1px solid rgba($color-black, 0.06);
+}
+
+.notify__list {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+.notify__item {
+padding: pxToRem(12) pxToRem(14);
+border-bottom: 1px solid rgba($color-black, 0.06);
+}
+
+.notify__item:last-child {
+border-bottom: none;
+}
+
+.notify__item-title {
+font-size: pxToRem(13);
+font-weight: 600;
+color: $color-text;
+}
+
+.notify__item-meta {
+margin-top: pxToRem(4);
+font-size: pxToRem(12);
+color: $color-text-muted;
+}
+
+.notify__empty {
+padding: pxToRem(14);
+font-size: pxToRem(12);
+color: $color-text-muted;
+}

@@ -1,0 +1,54 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+
+.user-badge {
+display: inline-flex;
+align-items: center;
+gap: pxToRem(10);
+padding: pxToRem(10) pxToRem(12);
+border-radius: pxToRem(14);
+background: $color-white;
+border: 1px solid rgba($color-black, 0.08);
+}
+
+.user-badge__avatar {
+width: pxToRem(34);
+height: pxToRem(34);
+border-radius: pxToRem(10);
+background: linear-gradient(135deg, $color-primary-200 0%, $color-primary-400 100%);
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.user-badge__avatar-img {
+width: pxToRem(18);
+height: pxToRem(18);
+display: block;
+}
+
+.user-badge__info {
+min-width: 0;
+}
+
+.user-badge__name {
+font-size: pxToRem(14);
+font-weight: 700;
+color: $color-text;
+line-height: pxToRem(18);
+white-space: nowrap;
+}
+
+.user-badge__id {
+font-weight: 600;
+color: $color-text-muted;
+margin-left: pxToRem(6);
+}
+
+.user-badge__role {
+margin-top: pxToRem(2);
+font-size: pxToRem(12);
+color: $color-text-muted;
+line-height: pxToRem(16);
+white-space: nowrap;
+}

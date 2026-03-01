@@ -6,7 +6,6 @@
   grid-template-columns: pxToRem(320) 1fr;
   min-height: 100vh;
   background: $color-bg;
-  align-items: stretch;
 }
 
 .app-layout__right {
@@ -14,6 +13,12 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
+}
+
+.app-layout__header {
+  padding: pxToRem(20) pxToRem(24) 0;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .app-layout__content {
@@ -27,7 +32,7 @@
   border: 1px solid $color-border;
   border-radius: pxToRem(16);
   padding: pxToRem(24);
-  min-height: 100%;
+  min-height: calc(100vh - #{pxToRem(160)});
   animation: pageIn 180ms ease-out;
   will-change: transform, opacity;
 }
