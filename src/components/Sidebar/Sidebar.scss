@@ -139,3 +139,37 @@
 .sidebar__text {
   font-size: pxToRem(14);
 }
+
+.sidebar__rail-signout {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding-bottom: pxToRem(10);
+}
+
+.sidebar__rail-btn--signout {
+  margin-bottom: pxToRem(6);
+}
+
+.sidebar__tip {
+  position: absolute;
+  left: calc(100% + #{pxToRem(10)});
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba($color-black, 0.85);
+  color: $color-white;
+  font-size: pxToRem(12);
+  font-weight: 700;
+  padding: pxToRem(8) pxToRem(10);
+  border-radius: pxToRem(10);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.sidebar__rail-signout:hover .sidebar__tip,
+.sidebar__rail-signout:focus-within .sidebar__tip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(pxToRem(2));
+}

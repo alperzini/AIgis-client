@@ -1,15 +1,22 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import "./AppLayout.scss";
 import Sidebar from "../Sidebar/Sidebar";
 import Footer from "../Footer/Footer";
 import DashboardTopRight from "../DashboardTopRight/DashboardTopRight";
+import { signOut } from "../../utils/auth";
 
 function AppLayout() {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    signOut();
+    navigate("/login", { replace: true });
+  };
 
   return (
     <div className="app-layout">
-      <Sidebar onSignOut={() => console.log("sign out")} />
+      <Sidebar onSignOut={handleSignOut} />
 
       <div className="app-layout__right">
         <header className="app-layout__header">
