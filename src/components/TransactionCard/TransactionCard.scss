@@ -96,6 +96,10 @@
             }
         }
 
+        &__expanded {
+            background-color: $color-supporting-200;
+        }
+
 
         &__button-field {
             flex: 1;
@@ -121,10 +125,14 @@
     &__expanded {
         margin-top: 20px;
         padding-top: 16px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-bottom: 2rem;
     }
 
     &__actions {
         display: flex;
+        flex-direction: row-reverse;
         gap: 12px;
         margin: 16px 0;
     }
@@ -132,9 +140,24 @@
     &__escalation {
         display: flex;
         gap: 16px;
+
+        &__field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            &--input {
+                padding: 0.5rem;
+                border-radius: 3rem;
+            }
+        }
     }
 
     .active-btn {
+        font-family: $font-family-primary;
+        padding: 0.5rem;
+        border-radius: 50%;
+        cursor: pointer;
+
     &--approve {
         background: #6b8e5a;
         color: white;
@@ -167,4 +190,9 @@
 
     }
     
+}
+
+.pca-description {
+    color: rgb(98, 98, 98);
+    font-size: 0.7rem;
 }
