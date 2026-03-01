@@ -8,16 +8,19 @@
     font-family: $font-family-primary;
     background-color: rgb(84, 84, 84);
     margin-bottom: 1rem;
+
     &--low {
         background-color: $color-success-100;
         border-top: 1px solid $color-neutral-300;
         border-bottom: 1px solid $color-neutral-300;
     }
+
     &--medium {
         background-color: $color-warning-100;
         border-top: 1px solid $color-neutral-300;
         border-bottom: 1px solid $color-neutral-300;
     }
+
     &--high {
         background-color: $color-failure-100;
         border-top: 1px solid $color-neutral-300;
@@ -29,28 +32,28 @@
         align-items: center;
         justify-content: space-around;
         padding-left: 2rem;
-        
+
     }
 
     &__details-btn-wrapper {
         flex: 0.5;
-        
+
     }
 
-        &__details-btn {
-            background: none;      // removes background
-            border: none;          // removes border
-            padding: 0;            // no spacing around the icon
-            cursor: pointer;
-            display: inline-flex;  // align icon nicely
-            align-items: center;
-            justify-content: center;
+    &__details-btn {
+        background: none; // removes background
+        border: none; // removes border
+        padding: 0; // no spacing around the icon
+        cursor: pointer;
+        display: inline-flex; // align icon nicely
+        align-items: center;
+        justify-content: center;
 
-            // Optional: subtle hover effect
-            &:hover {
-                opacity: 0.7;
-            }
+        // Optional: subtle hover effect
+        &:hover {
+            opacity: 0.7;
         }
+    }
 
     &__id {
         flex: 1;
@@ -70,40 +73,40 @@
     }
 
 
-        &__risk-pill {
-            flex: 0.75;
-            padding: 0.4rem;
-            border-radius: 10px;
-            font-size: toRem(12);
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-align: center;
-  
+    &__risk-pill {
+        flex: 0.75;
+        padding: 0.4rem;
+        border-radius: 10px;
+        font-size: toRem(12);
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-align: center;
 
-            &--low {
+
+        &--low {
             background-color: $color-success-400;
             color: #fff;
-            }
+        }
 
-            &--medium {
+        &--medium {
             background-color: $color-supporting-300;
             color: #fff;
-            }
+        }
 
-            &--high {
+        &--high {
             background-color: $color-failure-400;
             color: #fff;
-            }
         }
+    }
 
-        &__expanded {
-            background-color: $color-supporting-200;
-        }
+    &__expanded {
+        background-color: $color-supporting-200;
+    }
 
 
-        &__button-field {
-            flex: 1;
-        }
+    &__button-field {
+        flex: 1;
+    }
 
     &__icon-btn {
         background: none;
@@ -114,6 +117,7 @@
         justify-content: center;
         align-items: center;
         gap: 0.4rem;
+
         &--edit-text {
             font-family: $font-family-primary;
             font-size: 1rem;
@@ -145,6 +149,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.2rem;
+
             &--input {
                 padding: 0.5rem;
                 border-radius: 3rem;
@@ -158,38 +163,38 @@
         border-radius: 50%;
         cursor: pointer;
 
-    &--approve {
-        background: #6b8e5a;
-        color: white;
+        &--approve {
+            background: #6b8e5a;
+            color: white;
+        }
+
+        &--block {
+            background: #c27c5e;
+            color: white;
+        }
+
+        &--escalate {
+            background: #0f7c7a;
+            color: white;
+        }
+
+
+        &--user-approved {
+            background-color: #d6e8ff; // blue-ish
+        }
+
+        &--user-blocked {
+            background-color: #ffd6d6; // red-ish
+        }
+
+        &--pending-review {
+            background-color: #e7d9ff; // purple-ish
+        }
+
+
+
     }
 
-    &--block {
-        background: #c27c5e;
-        color: white;
-    }
-
-    &--escalate {
-        background: #0f7c7a;
-        color: white;
-    }
-
-
-      &--user-approved {
-        background-color: #d6e8ff; // blue-ish
-    }
-
-    &--user-blocked {
-        background-color: #ffd6d6; // red-ish
-    }
-
-    &--pending-review {
-        background-color: #e7d9ff; // purple-ish
-    }
-
-
-
-    }
-    
 }
 
 .pca-description {

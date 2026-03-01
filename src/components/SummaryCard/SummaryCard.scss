@@ -5,7 +5,7 @@
 .summary-card {
     display: flex;
     flex-direction: column;
-    background-color: $color-neutral-200;
+    border-radius: 12px;
 
     .typography--h2,
     .typography--h3,
@@ -16,15 +16,21 @@
     }
 
     &--green {
-        --card-accent-color: #{$color-success-400};
+        --card-accent-color-large: #{$color-success-400};
+        --card-accent-color-small: #{$color-success-200};
 
         .summary-card__content--large.typography {
             color: $color-success-400;
         }
+
+        &.summary-card--small {
+            background-color: var(--card-accent-color-small);
+        }
     }
 
     &--red {
-        --card-accent-color: #{$color-failure-400};
+        --card-accent-color-large: #{$color-failure-400};
+        --card-accent-color-small: #{$color-failure-200};
 
         .summary-card__header--large.typography {
             color: $color-neutral-100;
@@ -33,13 +39,33 @@
         .summary-card__content--large.typography {
             color: $color-failure-400;
         }
+
+        &.summary-card--small {
+            background-color: var(--card-accent-color-small);
+        }
     }
 
     &--yellow {
-        --card-accent-color: #{$color-warning-400};
+        --card-accent-color-large: #{$color-warning-400};
 
         .summary-card__content--large.typography {
             color: $color-warning-400;
+        }
+    }
+
+    &--blue {
+        --card-accent-color-small: #{$color-primary-100};
+
+        &.summary-card--small {
+            background-color: var(--card-accent-color-small);
+        }
+    }
+
+    &--cyan {
+        --card-accent-color-small: #43D2D5;
+
+        &.summary-card--small {
+            background-color: var(--card-accent-color-small);
         }
     }
 
@@ -49,8 +75,8 @@
         padding-top: pxToRem(8);
         align-items: flex-start;
         gap: pxToRem(12);
-        height: 100px;
-        width: 200px;
+        height: 120px;
+        width: 300px;
     }
 
     &--large {
@@ -58,11 +84,11 @@
         padding-right: pxToRem(16);
         gap: pxToRem(20);
         height: 100px;
-        width: 300px;
+        width: 350px;
         justify-content: center;
 
         background: linear-gradient(to bottom,
-                var(--card-accent-color) 50%,
+                var(--card-accent-color-large) 50%,
                 $color-neutral-100 50%);
     }
 

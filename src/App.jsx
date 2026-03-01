@@ -22,35 +22,36 @@ function App() {
 
   return (
     <BrowserRouter>
-   <Routes>
-    <Route path="/login" element={<LoginPage />} />
-    <Route element={<ProtectedRoute/>}>
-       <Route element={<AppLayout />}>
-          {/* Dashboard */}
-          <Route path="/" element={<DashboardPage />} />
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route element={<ProtectedRoute />}>
+          <Route element={<AppLayout />}>
+            {/* Dashboard */}
+            <Route path="/" element={<DashboardPage transactions={transactions}
+              setTransactions={setTransactions} />} />
 
-          {/* Transactions List */}
-          <Route
-            path="/transactions"
-            element={
-              <TransactionsPage
-                transactions={transactions}
-                setTransactions={setTransactions}
-              />
-            }
-          />
+            {/* Transactions List */}
+            <Route
+              path="/transactions"
+              element={
+                <TransactionsPage
+                  transactions={transactions}
+                  setTransactions={setTransactions}
+                />
+              }
+            />
 
-          {/* Single Transaction Details */}
-          <Route
-            path="/transactions/:id"
-            element={<TransactionDetailsPage />}
-          />
+            {/* Single Transaction Details */}
+            <Route
+              path="/transactions/:id"
+              element={<TransactionDetailsPage />}
+            />
 
-          {/* Catch-all redirect */}
-          <Route path="*" element={<Navigate to="/" replace />} />
+            {/* Catch-all redirect */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Route>
         </Route>
-      </Route>
-      </Routes>     
+      </Routes>
     </BrowserRouter>
   );
 }
