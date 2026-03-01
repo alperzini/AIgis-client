@@ -31,30 +31,123 @@
 
   &__header {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: toRem(12);
-  }
-
-  &__icon-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: toRem(8);
-    border-radius: toRem(8);
-    color: $color-text-muted;
-
-    &:hover {
-      background-color: rgba($color-neutral-200, 0.45);
-      color: $color-text;
+    flex-direction: column;
+    font-family: $font-family-primary;
+    background-color: rgb(84, 84, 84);
+    margin-bottom: 1rem;
+    &--low {
+        background-color: $color-success-100;
+        border-top: 1px solid $color-neutral-300;
+        border-bottom: 1px solid $color-neutral-300;
+    }
+    &--medium {
+        background-color: $color-warning-100;
+        border-top: 1px solid $color-neutral-300;
+        border-bottom: 1px solid $color-neutral-300;
+    }
+    &--high {
+        background-color: $color-failure-100;
+        border-top: 1px solid $color-neutral-300;
+        border-bottom: 1px solid $color-neutral-300;
     }
 
-    &:focus-visible {
-      outline: toRem(2) solid $color-link;
-      outline-offset: toRem(2);
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding-left: 2rem;
+        
+    }
+
+    &__details-btn-wrapper {
+        flex: 0.5;
+        
+    }
+
+        &__details-btn {
+            background: none;      // removes background
+            border: none;          // removes border
+            padding: 0;            // no spacing around the icon
+            cursor: pointer;
+            display: inline-flex;  // align icon nicely
+            align-items: center;
+            justify-content: center;
+
+            // Optional: subtle hover effect
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+
+    &__id {
+        flex: 1;
+    }
+
+    &__date {
+        flex: 1.5;
+    }
+
+    &__amount {
+        flex: 1;
+    }
+
+    &__status {
+        flex: 2;
+        margin-left: 3rem;
+    }
+
+
+        &__risk-pill {
+            flex: 0.75;
+            padding: 0.4rem;
+            border-radius: 10px;
+            font-size: toRem(12);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-align: center;
+  
+
+            &--low {
+            background-color: $color-success-400;
+            color: #fff;
+            }
+
+            &--medium {
+            background-color: $color-supporting-300;
+            color: #fff;
+            }
+
+            &--high {
+            background-color: $color-failure-400;
+            color: #fff;
+            }
+        }
+
+
+        &__button-field {
+            flex: 1;
+        }
+
+    &__icon-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0.4rem;
+        &--edit-text {
+            font-family: $font-family-primary;
+            font-size: 1rem;
+            font-weight: 600;
+
+        }
+    }
+
+    &__expanded {
+        margin-top: 20px;
+        padding-top: 16px;
     }
   }
 
@@ -71,18 +164,15 @@
     flex-wrap: wrap;
   }
 
-  &__escalation {
-    display: flex;
-    gap: toRem(16);
-    flex-wrap: wrap;
-  }
+    .active-btn {
+    &--approve {
+        background: #6b8e5a;
+        color: white;
+    }
 
-  .btn--approve {
-    background: $color-success-400;
-    color: $color-white;
-
-    &:hover {
-      background: $color-success-500;
+    &--block {
+        background: #c27c5e;
+        color: white;
     }
   }
 
@@ -90,17 +180,27 @@
     background: $color-failure-400;
     color: $color-white;
 
-    &:hover {
-      background: $color-failure-500;
+    &--escalate {
+        background: #0f7c7a;
+        color: white;
     }
   }
 
-  .btn--escalate {
-    background: $color-secondary-400;
-    color: $color-white;
 
-    &:hover {
-      background: $color-secondary-500;
+    &--user-approved {
+        background-color: #d6e8ff; // blue-ish
     }
-  }
+
+    &--user-blocked {
+        background-color: #ffd6d6; // red-ish
+    }
+
+    &--pending-review {
+        background-color: #e7d9ff; // purple-ish
+    }
+
+
+
+    }
+    
 }

@@ -1,0 +1,52 @@
+/* ConfirmModal.scss */
+.confirm-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+  }
+
+  &__content {
+    position: relative;
+    max-width: 400px;
+    margin: 10vh auto 0;
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    z-index: 1001;
+  }
+
+  &__title {
+    margin: 0 0 0.5rem;
+  }
+
+  &__message {
+    margin: 0 0 1.25rem;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+  }
+
+  &__btn {
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+
+    &--cancel {
+      background: #e0e0e0;
+    }
+
+    &--confirm {
+      background: #2e66e5;
+      color: #fff;
+    }
+  }
+}
