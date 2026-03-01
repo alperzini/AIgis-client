@@ -22,12 +22,33 @@ function TransactionDetailsPage() {
           <Typography className="transaction-details-page__header-text">Active Editor: #38-101-031</Typography>
         </div>
       </div>
+      <div className="transaction-details-page__header-buttons">
+        <button></button>
+        <button></button>
+        <button></button>
+      </div>
 
-      <p className="transaction-details-page__text">
-        Transaction ID: {transactionId}
-      </p>
-      <AccountSummaryCard />
-      <OrderDetailsCard />
+      <div className="transaction-details-page__top-wrapper">
+        <div>
+          <h1></h1>
+          <div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+
+      <div className="transaction-details-page__bottom-wrapper">
+        <div className="transaction-details-page__bottom-left-wrapper">
+          <AccountSummaryCard />
+          <OrderDetailsCard />
+        </div>
+      </div>
       <NotesThread />
     </main>
   );

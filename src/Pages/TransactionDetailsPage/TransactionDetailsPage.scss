@@ -16,6 +16,7 @@
     &__header {
         display: flex;
         gap: pxToRem(24);
+        margin-right: pxToRem(8);
     }
 
     &__back-button {
