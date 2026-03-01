@@ -11,7 +11,7 @@ function AccountSummaryCard({
     <section className="acct-card" aria-labelledby="acct-card-title">
       <header className="acct-card__header">
         <Typography
-          variant="h2"
+          variant="h3"
           as="h2"
           className="acct-card__title"
           id="acct-card-title"

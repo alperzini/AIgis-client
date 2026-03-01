@@ -7,15 +7,16 @@
   border-radius: pxToRem(18);
   overflow: hidden;
   box-shadow: 0 pxToRem(10) pxToRem(30) rgba($color-black, 0.06);
+  margin-bottom: pxToRem(16);
 }
 
 .acct-card__header {
   padding: pxToRem(14) pxToRem(18);
-  background: $color-primary-100;
+  background: #F1F5F9;
 }
 
 .acct-card__title {
-  color: $color-white;
+  color: #0C085C;
   font-weight: 700;
 }
 

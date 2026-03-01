@@ -18,36 +18,77 @@
 
     &__header {
         display: flex;
-        gap: pxToRem(24);
+        align-items: center;
+        gap: pxToRem(12);
     }
 
     &__back-button {
-        background: none;
-        border: none;
-        padding: 0;
+        width: pxToRem(40);
+        height: pxToRem(40);
+        border-radius: pxToRem(12);
+        background: $color-white;
+        border: 1px solid rgba($color-black, 0.08);
         cursor: pointer;
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
 
         img {
             display: block;
-            width: 24px;
-            height: 24px;
+            width: pxToRem(20);
+            height: pxToRem(20);
         }
 
-        &:hover img {
-            opacity: 0.8;
+        &:hover {
+            border-color: rgba($color-black, 0.14);
+            box-shadow: 0 pxToRem(6) pxToRem(18) rgba($color-black, 0.08);
+            transform: translateY(pxToRem(-1));
+        }
+
+        &:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
+        &:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 pxToRem(3) rgba($color-primary-100, 0.35);
         }
     }
 
     &__header-text-wrapper {
+        flex: 1;
         display: flex;
-        width: 100%;
-        padding: pxToRem(12);
+        align-items: center;
         justify-content: space-between;
-        background-color: $color-primary-100;
-        border-radius: pxToRem(8);
+        padding: pxToRem(14) pxToRem(16);
+        background: rgba($color-black, 0.02);
+        border: 1px solid rgba($color-black, 0.08);
+        border-radius: pxToRem(12);
+        min-width: 0;
+        gap: pxToRem(16);
+    }
+
+    &__header-text {
+        margin: 0;
+        font-weight: 700;
+        color: rgba($color-text, 0.92);
+        font-size: pxToRem(14);
+        line-height: pxToRem(20);
+
+        &:first-child {
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        &:last-child {
+            font-weight: 600;
+            color: rgba($color-text, 0.75);
+            white-space: nowrap;
+        }
     }
 
     &__header-buttons-wrapper {
