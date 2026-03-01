@@ -1,36 +1,16 @@
 @use "../../styles/functions" as *;
 
-.dash {
-display: flex;
-flex-direction: column;
-gap: pxToRem(18);
+.top-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: pxToRem(12);
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  width: 100%;
+  min-width: 0;
 }
 
-.dash__top {
-display: flex;
-align-items: flex-start;
-justify-content: space-between;
-gap: pxToRem(16);
-}
-
-.dash__titles {
-min-width: 0;
-}
-
-.dash__h1 {
-margin: 0;
-}
-
-.dash__sub {
-margin: pxToRem(6) 0 0;
-}
-
-.dash__cards {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: pxToRem(16);
-}
-
-.dash__below {
-min-height: pxToRem(240);
+.top-right > * {
+  flex: 0 0 auto;
 }
