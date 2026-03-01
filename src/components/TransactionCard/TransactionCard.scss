@@ -9,34 +9,118 @@
     background-color: rgb(84, 84, 84);
     margin-bottom: 1rem;
     &--low {
-        background-color: $color-supporting-green;
-        border: 1px solid #28a745;
+        background-color: $color-success-100;
+        border-top: 1px solid $color-neutral-300;
+        border-bottom: 1px solid $color-neutral-300;
     }
     &--medium {
-        background-color: $color-supporting-yellow;
-        border: 1px solid #ff9800;
+        background-color: $color-warning-100;
+        border-top: 1px solid $color-neutral-300;
+        border-bottom: 1px solid $color-neutral-300;
     }
     &--high {
-        background-color: $color-supporting-red;
-        border: 1px solid #f44336;
+        background-color: $color-failure-100;
+        border-top: 1px solid $color-neutral-300;
+        border-bottom: 1px solid $color-neutral-300;
     }
 
     &__header {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
+        padding-left: 2rem;
+        
     }
 
-    &____icon-btn {
+    &__details-btn-wrapper {
+        flex: 0.5;
+        
+    }
+
+        &__details-btn {
+            background: none;      // removes background
+            border: none;          // removes border
+            padding: 0;            // no spacing around the icon
+            cursor: pointer;
+            display: inline-flex;  // align icon nicely
+            align-items: center;
+            justify-content: center;
+
+            // Optional: subtle hover effect
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+
+    &__id {
+        flex: 1;
+    }
+
+    &__date {
+        flex: 1.5;
+    }
+
+    &__amount {
+        flex: 1;
+    }
+
+    &__status {
+        flex: 2;
+        margin-left: 3rem;
+    }
+
+
+        &__risk-pill {
+            flex: 0.75;
+            padding: 0.4rem;
+            border-radius: 10px;
+            font-size: toRem(12);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-align: center;
+  
+
+            &--low {
+            background-color: $color-success-400;
+            color: #fff;
+            }
+
+            &--medium {
+            background-color: $color-supporting-300;
+            color: #fff;
+            }
+
+            &--high {
+            background-color: $color-failure-400;
+            color: #fff;
+            }
+        }
+
+
+        &__button-field {
+            flex: 1;
+        }
+
+    &__icon-btn {
         background: none;
         border: none;
         cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0.4rem;
+        &--edit-text {
+            font-family: $font-family-primary;
+            font-size: 1rem;
+            font-weight: 600;
+
+        }
     }
 
     &__expanded {
         margin-top: 20px;
         padding-top: 16px;
-        border-top: 1px solid #eee;
     }
 
     &__actions {
@@ -50,19 +134,37 @@
         gap: 16px;
     }
 
-    .btn--approve {
+    .active-btn {
+    &--approve {
         background: #6b8e5a;
         color: white;
     }
 
-    .btn--block {
+    &--block {
         background: #c27c5e;
         color: white;
     }
 
-    .btn--escalate {
+    &--escalate {
         background: #0f7c7a;
         color: white;
     }
 
+
+    &--user-approved {
+        background-color: #d6e8ff; // blue-ish
+    }
+
+    &--user-blocked {
+        background-color: #ffd6d6; // red-ish
+    }
+
+    &--pending-review {
+        background-color: #e7d9ff; // purple-ish
+    }
+
+
+
+    }
+    
 }
