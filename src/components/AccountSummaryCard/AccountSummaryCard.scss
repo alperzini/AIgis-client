@@ -1,0 +1,66 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+
+.acct-card {
+  background: $color-white;
+  border: 1px solid rgba($color-black, 0.08);
+  border-radius: pxToRem(18);
+  overflow: hidden;
+  box-shadow: 0 pxToRem(10) pxToRem(30) rgba($color-black, 0.06);
+  margin-bottom: pxToRem(16);
+}
+
+.acct-card__header {
+  padding: pxToRem(14) pxToRem(18);
+  background: #F1F5F9;
+}
+
+.acct-card__title {
+  color: #0C085C;
+  font-weight: 700;
+}
+
+.acct-card__body {
+  padding: pxToRem(16) pxToRem(18);
+  background: rgba($color-black, 0.02);
+  display: grid;
+  grid-template-columns: 1fr pxToRem(1) 1fr;
+  gap: pxToRem(16);
+  align-items: center;
+}
+
+.acct-card__cell {
+  min-width: 0;
+}
+
+.acct-card__cell--right {
+  text-align: right;
+}
+
+.acct-card__label {
+  color: $color-text-muted;
+  font-weight: 700;
+}
+
+.acct-card__value {
+  margin-top: pxToRem(8);
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.acct-card__value--mono {
+  letter-spacing: 1px;
+}
+
+.acct-card__value--strong {
+  font-size: pxToRem(22);
+}
+
+.acct-card__divider {
+  width: pxToRem(1);
+  height: pxToRem(46);
+  background: rgba($color-primary-500, 0.55);
+  border-radius: pxToRem(1);
+}

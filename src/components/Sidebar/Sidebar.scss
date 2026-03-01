@@ -1,0 +1,182 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+
+.sidebar {
+  position: sticky;
+  top: 0;
+
+  height: 100vh; /* lock to viewport */
+  width: pxToRem(320);
+  display: flex;
+  overflow: hidden;
+  flex: 0 0 pxToRem(320); /* prevent stretching with content */
+}
+
+.sidebar__rail {
+  width: pxToRem(76);
+  background: $color-primary-500;
+  padding: pxToRem(18) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar__rail-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: pxToRem(16);
+  margin-top: 0;
+}
+
+.sidebar__rail-btn {
+  width: pxToRem(44);
+  height: pxToRem(44);
+  border-radius: pxToRem(14);
+  border: 1px solid rgba($color-white, 0.12);
+  background: rgba($color-white, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.sidebar__rail-btn:hover {
+  background: rgba($color-white, 0.22);
+  border-color: rgba($color-white, 0.4);
+}
+
+.sidebar__rail-btn--active {
+  background: $color-white;
+  border-color: $color-white;
+  box-shadow: 0 pxToRem(6) pxToRem(16) rgba($color-black, 0.2);
+}
+
+.sidebar__rail-icon {
+  width: pxToRem(20);
+  height: pxToRem(20);
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+.sidebar__rail-btn--active .sidebar__rail-icon {
+  filter: none;
+}
+
+.sidebar__rail-btn:last-child {
+  margin-bottom: pxToRem(6);
+}
+
+.sidebar__panel {
+  flex: 1;
+  min-height: 0; /* important for scrolling */
+  overflow: auto; /* panel scrolls if content ever grows */
+
+  background: linear-gradient(0deg, $gradient-1-low 0%, $gradient-1-high 100%);
+  padding: pxToRem(18) pxToRem(16);
+  color: $color-white;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__top {
+  display: flex;
+  flex-direction: column;
+  gap: pxToRem(20);
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: pxToRem(12);
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.sidebar__link {
+  position: relative;
+  height: pxToRem(44);
+  padding: 0 pxToRem(16);
+  border-radius: pxToRem(14);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 500;
+  color: rgba($color-white, 0.95);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: background 180ms ease, transform 180ms ease, border-color 180ms ease,
+    color 180ms ease;
+}
+
+.sidebar__link:hover {
+  background: rgba($color-white, 0.2);
+  border-color: rgba($color-white, 0.35);
+  transform: translateX(pxToRem(4));
+}
+
+.sidebar__link--active {
+  background: $color-white;
+  color: $color-neutral-500;
+  font-weight: 700;
+  border-color: $color-white;
+  box-shadow: 0 pxToRem(8) pxToRem(20) rgba($color-black, 0.18);
+  transform: translateX(pxToRem(6));
+}
+
+.sidebar__link::before {
+  content: "";
+  position: absolute;
+  left: pxToRem(-12);
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  width: pxToRem(4);
+  height: 60%;
+  border-radius: pxToRem(4);
+  background: $color-white;
+  transition: transform 200ms ease;
+}
+
+.sidebar__link--active::before {
+  transform: translateY(-50%) scaleY(1);
+}
+
+.sidebar__text {
+  font-size: pxToRem(14);
+}
+
+.sidebar__rail-signout {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding-bottom: pxToRem(10);
+}
+
+.sidebar__rail-btn--signout {
+  margin-bottom: pxToRem(6);
+}
+
+.sidebar__tip {
+  position: absolute;
+  left: calc(100% + #{pxToRem(10)});
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba($color-black, 0.85);
+  color: $color-white;
+  font-size: pxToRem(12);
+  font-weight: 700;
+  padding: pxToRem(8) pxToRem(10);
+  border-radius: pxToRem(10);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.sidebar__rail-signout:hover .sidebar__tip,
+.sidebar__rail-signout:focus-within .sidebar__tip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(pxToRem(2));
+}

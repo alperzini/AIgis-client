@@ -1,0 +1,207 @@
+@use "../../styles/functions" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.transaction-card {
+    display: flex;
+    flex-direction: column;
+    font-family: $font-family-primary;
+    background-color: rgb(84, 84, 84);
+    margin-bottom: 1rem;
+
+    &--low {
+        background-color: #F1F5F9;
+        border-top: 1px solid $color-neutral-200;
+        border-bottom: 1px solid $color-neutral-200;
+    }
+
+    &--medium {
+        background-color: #F1F5F9;
+        border-top: 1px solid $color-neutral-200;
+        border-bottom: 1px solid $color-neutral-200;
+    }
+
+    &--high {
+        background-color: #F1F5F9;
+        border-top: 1px solid $color-neutral-200;
+        border-bottom: 1px solid $color-neutral-200;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding-left: 2rem;
+
+    }
+
+    &__details-btn-wrapper {
+        flex: 0.5;
+
+    }
+
+    &__details-btn {
+        background: none; // removes background
+        border: none; // removes border
+        padding: 0; // no spacing around the icon
+        cursor: pointer;
+        display: inline-flex; // align icon nicely
+        align-items: center;
+        justify-content: center;
+
+        // Optional: subtle hover effect
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    &__id {
+        flex: 1;
+    }
+
+    &__date {
+        flex: 1.5;
+    }
+
+    &__amount {
+        flex: 1;
+    }
+
+    &__status {
+        flex: 2;
+        margin-left: 3rem;
+    }
+
+
+    &__risk-pill {
+        flex: 0.75;
+        padding: 0.4rem;
+        border-radius: 10px;
+        font-size: toRem(12);
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-align: center;
+
+
+        &--low {
+            background-color: $color-success-400;
+            color: #fff;
+        }
+
+        &--medium {
+            background-color: $color-supporting-300;
+            color: #fff;
+        }
+
+        &--high {
+            background-color: $color-failure-400;
+            color: #fff;
+        }
+    }
+
+    &__expanded {
+        background-color: #FFF;
+    }
+
+
+    &__button-field {
+        flex: 1;
+    }
+
+    &__icon-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0.4rem;
+
+        &--edit-text {
+            font-family: $font-family-primary;
+            font-size: 1rem;
+            font-weight: 600;
+
+        }
+    }
+
+    &__expanded {
+        margin-top: 20px;
+        padding-top: 16px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    &__actions {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 12px;
+        margin: 16px 0;
+    }
+
+    &__escalation {
+        display: flex;
+        gap: 16px;
+
+        &__field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+
+            &--input {
+                padding: 0.5rem;
+                border-radius: 3rem;
+            }
+        }
+    }
+
+    .active-btn {
+        font-family: $font-family-primary;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-radius: 0.8rem;
+        cursor: pointer;
+
+        &--approve {
+            background: #6b8e5a;
+            color: white;
+        }
+
+        &--block {
+            background: #c27c5e;
+            color: white;
+        }
+
+        &--escalate {
+            background: #0f7c7a;
+            color: white;
+        }
+
+
+        &--user-approved {
+            background-color: #d6e8ff; // blue-ish
+        }
+
+        &--user-blocked {
+            background-color: #ffd6d6; // red-ish
+        }
+
+        &--pending-review {
+            background-color: #e7d9ff; // purple-ish
+        }
+
+
+
+    }
+
+}
+
+.pca-description {
+    color: rgb(98, 98, 98);
+    font-size: 1rem;
+    width: 80%;
+}

@@ -2,14 +2,35 @@
 @use "../../styles/functions" as *;
 
 .dashboard-page {
-padding: pxToRem(24);
 
-&__title {
-    margin: 0 0 pxToRem(12) 0;
-}
+  &__top-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(24);
+  }
 
-&__text {
+  &__header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
     margin: 0;
-    color: $color-secondary-slate;
+  }
+
+  &__charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: pxToRem(24);
+  }
+
+  &__summary-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: pxToRem(12);
+  }
 }
+
+.table-row-header__wrapper {
+  margin-bottom: pxToRem(16);
 }

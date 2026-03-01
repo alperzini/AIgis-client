@@ -1,0 +1,178 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+
+.notes {
+  background: $color-white;
+  border: 1px solid rgba($color-black, 0.08);
+  border-radius: pxToRem(18);
+  overflow: hidden;
+  box-shadow: 0 pxToRem(10) pxToRem(30) rgba($color-black, 0.06);
+  display: flex;
+  flex-direction: column;
+  min-height: pxToRem(540);
+}
+
+.notes__header {
+    padding: pxToRem(18);
+    background: $color-primary-100;
+    font-weight: 700;
+  
+    &.typography {
+      color: $color-white;
+    }
+  
+    &.typography--h2 {
+      color: #0C085C;
+    }
+  }
+
+.notes__thread {
+  padding: pxToRem(16) pxToRem(18);
+  background: rgba($color-black, 0.02);
+  flex: 1;
+  overflow: auto;
+}
+
+.notes__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: pxToRem(10);
+}
+
+.notes__item {
+  overflow: hidden;
+}
+
+.notes__bubble {
+  border-radius: pxToRem(14);
+  border: 1px solid rgba($color-black, 0.08);
+  background: $color-white;
+  padding: pxToRem(12);
+}
+
+.notes__item--system .notes__bubble {
+  background: rgba($color-black, 0.03);
+  border-color: rgba($color-black, 0.06);
+}
+
+.notes__item--ai .notes__bubble {
+  background: rgba($color-primary-100, 0.18);
+  border-color: rgba($color-primary-100, 0.35);
+}
+
+.notes__msg {
+  color: $color-text;
+  font-weight: 400;
+}
+
+.notes__meta {
+  margin-top: pxToRem(6);
+  color: $color-text-muted;
+  font-weight: 400;
+}
+
+.notes__composer {
+  padding: pxToRem(16) pxToRem(18);
+  background: rgba($color-black, 0.02);
+  border-top: pxToRem(0.25) solid rgba($color-primary-500, 0.55);
+  display: grid;
+  gap: pxToRem(8);
+}
+
+.notes__label {
+  color: rgba($color-text, 0.85);
+  font-weight: 700;
+}
+
+.notes__input {
+  width: 100%;
+  resize: none;
+  border-radius: pxToRem(14);
+  border: 1px solid rgba($color-black, 0.1);
+  background: $color-white;
+  padding: pxToRem(10) pxToRem(12);
+  font-size: pxToRem(13);
+  font-family: $font-family-primary;
+  outline: none;
+
+  &::placeholder {
+    color: rgba($color-text-muted, 0.95);
+  }
+
+  &:focus {
+    border-color: rgba($color-primary-500, 0.35);
+    box-shadow: 0 0 0 pxToRem(3) rgba($color-primary-100, 0.25);
+  }
+}
+
+.notes__btn {
+  justify-self: end;
+}
+
+@keyframes noteExpandIn {
+  0% {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(pxToRem(-8));
+  }
+  100% {
+    max-height: pxToRem(180);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes noteFlash {
+  0% {
+    background: rgba($color-primary-100, 0.18);
+  }
+  100% {
+    background: transparent;
+  }
+}
+
+.notes__item--new {
+  animation: noteExpandIn 0.35s ease-out;
+}
+
+.notes__item--new .notes__bubble {
+  animation: noteFlash 0.9s ease-out;
+}
+
+.notes__typing {
+  display: inline-flex;
+  align-items: center;
+  gap: pxToRem(6);
+  padding: pxToRem(2) 0 pxToRem(8);
+}
+
+@keyframes dotPulse {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+  40% {
+    transform: translateY(pxToRem(-3));
+    opacity: 0.9;
+  }
+}
+
+.notes__dot {
+  width: pxToRem(6);
+  height: pxToRem(6);
+  border-radius: 999px;
+  background: rgba($color-black, 0.55);
+  animation: dotPulse 1s infinite;
+}
+
+.notes__dot:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.notes__dot:nth-child(3) {
+  animation-delay: 0.24s;
+}

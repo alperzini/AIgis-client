@@ -1,40 +1,57 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import axios from "axios";
-import Navigation from "./components/Navigation/Navigation";
+import Sidebar from "./components/Sidebar/Sidebar";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import TransactionsPage from "./pages/TransactionsPage/TransactionsPage";
 import TransactionDetailsPage from "./pages/TransactionDetailsPage/TransactionDetailsPage";
+import { fetchUpdate } from "./utils/apiRequests";
+import AppLayout from "./components/AppLayout/AppLayout";
+
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {
-  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;  // http://localhost:
-  const PORT = import.meta.env.VITE_PORT;                // 8080
-
-  const [expenses, setExpenses] = useState([]);
+  const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const expensesRes = await axios.get(`${BACKEND_URL}${PORT}/expenses`);
-        setExpenses(expensesRes.data);
-      } catch (error) {
-        console.error("Error fetching expenses:", error);
-      }
-    };
-
-    fetchData();
+    fetchUpdate("transactions", (data) => {
+      console.log("DATA RECEIVED FROM BACKEND:", data);
+      setTransactions(data);
+    });
   }, []);
 
   return (
     <BrowserRouter>
-      <Navigation />
       <Routes>
-        <Route path="/" element={<DashboardPage />} />
-        <Route path="/expenses" element={<TransactionsPage expenses={expenses} setExpenses={setExpenses} />} />
-        <Route path="/expenses/:id" element={<TransactionDetailsPage />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route element={<ProtectedRoute />}>
+          <Route element={<AppLayout />}>
+            {/* Dashboard */}
+            <Route path="/" element={<DashboardPage transactions={transactions}
+              setTransactions={setTransactions} />} />
 
+            {/* Transactions List */}
+            <Route
+              path="/transactions"
+              element={
+                <TransactionsPage
+                  transactions={transactions}
+                  setTransactions={setTransactions}
+                />
+              }
+            />
+
+            {/* Single Transaction Details */}
+            <Route
+              path="/transactions/:id"
+              element={<TransactionDetailsPage />}
+            />
+
+            {/* Catch-all redirect */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Route>
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }
