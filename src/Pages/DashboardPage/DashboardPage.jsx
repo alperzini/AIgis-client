@@ -37,7 +37,7 @@ function DashboardPage({ transactions, setTransactions }) {
         </div>
       </div>
       <Typography variant="h2"> Most Recent Transactions</Typography>
-      <TableRowHeader headers={headers} data={transactions} setData={setTransactions} />
+      <div className="table-row-header__wrapper"><TableRowHeader headers={headers} data={transactions} setData={setTransactions} /></div>
       <TransactionList transactions={smallArray} setTransactions={setTransactions} />
     </main>
   );

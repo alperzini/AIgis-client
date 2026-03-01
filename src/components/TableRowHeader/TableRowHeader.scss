@@ -4,14 +4,15 @@
 
 .table-row-header {
 
-    background-color: #005F60;
+    background-color: $color-neutral-200;
     display: flex;
     justify-content: space-around;
+    border-radius: pxToRem(8);
 
     .typography--h4 {
         margin-top: 0;
         margin-bottom: 0;
-        color: $color-neutral-100;
+        // color: $color-neutral-100;
     }
 
     padding: pxToRem(11) pxToRem(0) pxToRem(11) pxToRem(32);
@@ -25,7 +26,7 @@
     }
 
     &__label {
-        color: $color-neutral-100;
+        // color: $color-neutral-100;
     }
 
     &__sort-button {
