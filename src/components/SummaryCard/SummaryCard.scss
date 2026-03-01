@@ -1,0 +1,99 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+@use "../../styles/mixins" as *;
+
+.summary-card {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-neutral-200;
+
+    .typography--h2,
+    .typography--h3,
+    .typography--p1,
+    .typography--p2 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    &--green {
+        --card-accent-color: #{$color-success-400};
+
+        .summary-card__content--large.typography {
+            color: $color-success-400;
+        }
+    }
+
+    &--red {
+        --card-accent-color: #{$color-failure-400};
+
+        .summary-card__header--large.typography {
+            color: $color-neutral-100;
+        }
+
+        .summary-card__content--large.typography {
+            color: $color-failure-400;
+        }
+    }
+
+    &--yellow {
+        --card-accent-color: #{$color-warning-400};
+
+        .summary-card__content--large.typography {
+            color: $color-warning-400;
+        }
+    }
+
+    &--small {
+        justify-content: flex-start;
+        padding-left: pxToRem(24);
+        padding-top: pxToRem(8);
+        align-items: flex-start;
+        gap: pxToRem(12);
+        height: 100px;
+        width: 200px;
+    }
+
+    &--large {
+        padding-left: pxToRem(16);
+        padding-right: pxToRem(16);
+        gap: pxToRem(20);
+        height: 100px;
+        width: 300px;
+        justify-content: center;
+
+        background: linear-gradient(to bottom,
+                var(--card-accent-color) 50%,
+                $color-neutral-100 50%);
+    }
+
+    &__header {
+        &--small {
+            padding: pxToRem(4) 0;
+        }
+
+        &--large {
+            align-self: flex-start;
+        }
+    }
+
+    &__content {
+        &--small {
+            padding: pxToRem(4) 0;
+            align-self: flex-start;
+
+            &.typography--p2 {
+                font-size: 24px;
+                font-weight: 700;
+            }
+        }
+
+        &--large {
+            align-self: flex-end;
+
+            &.typography--p1 {
+                font-size: 32px;
+                font-weight: 600;
+            }
+        }
+    }
+}
