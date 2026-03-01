@@ -41,7 +41,7 @@ const TableRowHeader = ({ headers = [], data = [], setData }) => {
                 <div
                     key={index}
                     className="table-row-header__cell"
-                    style={{ flex: flex }}
+                    style={{ flex, marginLeft: key === "status" ? "3rem" : 0 }}
                 >
                     <span className="table-row-header__label">
                         <Typography variant="h4">{label}</Typography></span>

@@ -2,22 +2,31 @@
 @use "../../styles/functions" as *;
 
 .dashboard-page {
-  display: flex;
-  flex-direction: column;
-  gap: pxToRem(24);
-}
 
-.dashboard-page__header {
-  display: flex;
-  flex-direction: column;
-}
+  &__top-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(24);
+  }
 
-.dashboard-page__title {
-  margin: 0;
-}
+  &__header {
+    display: flex;
+    flex-direction: column;
+  }
 
-.dashboard-page__charts {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: pxToRem(24);
+  &__title {
+    margin: 0;
+  }
+
+  &__charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: pxToRem(24);
+  }
+
+  &__summary-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: pxToRem(12);
+  }
 }

@@ -2,13 +2,13 @@ import "./SummaryCard.scss";
 import Typography from "../Typography/Typography.jsx";
 
 //variant = "small", "large"
-//color = "green", "red", "yellow"
+//color = "green", "red", "yellow", "blue", "cyan"
 const SummaryCard = ({ variant = "small", header, content, color = "green" }) => {
     const isLarge = variant === "large";
     const safeVariant = isLarge ? "large" : "small";
 
     return (
-        <div className={`summary-card summary-card--${safeVariant} ${isLarge ? `summary-card--${color}` : ""}`}>
+        <div className={`summary-card summary-card--${safeVariant} summary-card--${color}`}>
             <Typography
                 className={`summary-card__header summary-card__header--${safeVariant}`}
                 variant={isLarge ? "h2" : "h3"}
