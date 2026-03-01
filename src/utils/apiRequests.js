@@ -1,5 +1,7 @@
 import axios from "axios";
-const baseUrl = import.meta.env.VITE_API_BASE_URL;
+const endpoint = import.meta.env.VITE_PORT;
+const port = import.meta.env.VITE_BACKEND_URL;
+const baseUrl = `${endpoint}${port}`;
 
 export const fetchUpdate = async (endpoint, setData) => {
     try {

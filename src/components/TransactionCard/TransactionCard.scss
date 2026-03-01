@@ -8,16 +8,19 @@
     font-family: $font-family-primary;
     background-color: rgb(84, 84, 84);
     margin-bottom: 1rem;
+
     &--low {
-        background-color: $color-supporting-green;
+        background-color: $color-success-100;
         border: 1px solid #28a745;
     }
+
     &--medium {
-        background-color: $color-supporting-yellow;
+        background-color: $color-warning-100;
         border: 1px solid #ff9800;
     }
+
     &--high {
-        background-color: $color-supporting-red;
+        background-color: $color-failure-100;
         border: 1px solid #f44336;
     }
 
