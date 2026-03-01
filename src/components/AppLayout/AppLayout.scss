@@ -6,7 +6,6 @@
   grid-template-columns: pxToRem(320) 1fr;
   min-height: 100vh;
   background: $color-bg;
-  align-items: stretch;
 }
 
 .app-layout__right {
@@ -16,10 +15,21 @@
   flex-direction: column;
 }
 
+.app-layout__header {
+  padding: pxToRem(20) pxToRem(24) 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: nowrap;
+  min-width: 0;
+  width: 100%;
+}
+
 .app-layout__content {
   flex: 1;
   padding: pxToRem(24);
   min-width: 0;
+  
 }
 
 .app-layout__page {
@@ -27,9 +37,10 @@
   border: 1px solid $color-border;
   border-radius: pxToRem(16);
   padding: pxToRem(24);
-  min-height: 100%;
+  min-height: calc(100vh - #{pxToRem(160)});
   animation: pageIn 180ms ease-out;
   will-change: transform, opacity;
+  min-width: 0;
 }
 
 @keyframes pageIn {
