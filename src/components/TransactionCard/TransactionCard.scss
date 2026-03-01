@@ -10,21 +10,21 @@
     margin-bottom: 1rem;
 
     &--low {
-        background-color: $color-success-100;
-        border-top: 1px solid $color-neutral-300;
-        border-bottom: 1px solid $color-neutral-300;
+        background-color: #F1F5F9;
+        border-top: 1px solid $color-neutral-200;
+        border-bottom: 1px solid $color-neutral-200;
     }
 
     &--medium {
-        background-color: $color-warning-100;
-        border-top: 1px solid $color-neutral-300;
-        border-bottom: 1px solid $color-neutral-300;
+        background-color: #F1F5F9;
+        border-top: 1px solid $color-neutral-200;
+        border-bottom: 1px solid $color-neutral-200;
     }
 
     &--high {
-        background-color: $color-failure-100;
-        border-top: 1px solid $color-neutral-300;
-        border-bottom: 1px solid $color-neutral-300;
+        background-color: #F1F5F9;
+        border-top: 1px solid $color-neutral-200;
+        border-bottom: 1px solid $color-neutral-200;
     }
 
     &__header {
@@ -100,7 +100,7 @@
     }
 
     &__expanded {
-        background-color: $color-supporting-200;
+        background-color: #FFF;
     }
 
 
@@ -159,8 +159,11 @@
 
     .active-btn {
         font-family: $font-family-primary;
-        padding: 0.5rem;
-        border-radius: 50%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-radius: 0.8rem;
         cursor: pointer;
 
         &--approve {
@@ -199,5 +202,6 @@
 
 .pca-description {
     color: rgb(98, 98, 98);
-    font-size: 0.7rem;
+    font-size: 1rem;
+    width: 80%;
 }
