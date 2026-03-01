@@ -7,11 +7,9 @@ function TransactionDetailsPage() {
 
   return (
     <main className="transaction-details-page">
-      <PageWrapper title="Transaction Details">
         <p className="transaction-details-page__text">
           Transaction ID: {transactionId}
         </p>
-      </PageWrapper>
     </main>
   );
 }
