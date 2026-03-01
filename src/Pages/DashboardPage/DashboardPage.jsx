@@ -26,8 +26,8 @@ function DashboardPage({ transactions, setTransactions }) {
         </div>
 
         <div className="dashboard-page__charts">
-          <AlertVolumeCard />
           <RiskBreakdownCard />
+          <AlertVolumeCard />
         </div>
         <div className="dashboard-page__summary-cards">
           <SummaryCard variant="small" header="Total Transactions" content="284,302" color="blue" />
@@ -37,7 +37,7 @@ function DashboardPage({ transactions, setTransactions }) {
         </div>
       </div>
       <Typography variant="h2"> Most Recent Transactions</Typography>
-      <TableRowHeader headers={headers} data={transactions} setData={setTransactions} />
+      <div className="table-row-header__wrapper"><TableRowHeader headers={headers} data={transactions} setData={setTransactions} /></div>
       <TransactionList transactions={smallArray} setTransactions={setTransactions} />
     </main>
   );

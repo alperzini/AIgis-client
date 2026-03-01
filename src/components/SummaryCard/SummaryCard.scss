@@ -16,12 +16,12 @@
     }
 
     &--green {
-        --card-accent-color-large: #{$color-success-400};
+        --card-accent-color-large: #{$color-success-200};
         --card-accent-color-small: #{$color-success-200};
 
-        .summary-card__content--large.typography {
-            color: $color-success-400;
-        }
+        // .summary-card__content--large.typography {
+        //     color: $color-success-200;
+        // }
 
         &.summary-card--small {
             background-color: var(--card-accent-color-small);
@@ -29,16 +29,16 @@
     }
 
     &--red {
-        --card-accent-color-large: #{$color-failure-400};
-        --card-accent-color-small: #{$color-failure-200};
+        --card-accent-color-large: #{$color-failure-100};
+        --card-accent-color-small: #{$color-failure-100};
 
-        .summary-card__header--large.typography {
-            color: $color-neutral-100;
-        }
+        // .summary-card__header--large.typography {
+        //     color: $color-neutral-100;
+        // }
 
-        .summary-card__content--large.typography {
-            color: $color-failure-400;
-        }
+        // .summary-card__content--large.typography {
+        //     color: $color-failure-100;
+        // }
 
         &.summary-card--small {
             background-color: var(--card-accent-color-small);
@@ -46,15 +46,15 @@
     }
 
     &--yellow {
-        --card-accent-color-large: #{$color-warning-400};
+        --card-accent-color-large: #{$color-warning-200};
 
-        .summary-card__content--large.typography {
-            color: $color-warning-400;
-        }
+        // .summary-card__content--large.typography {
+        //     color: $color-warning-200;
+        // }
     }
 
     &--blue {
-        --card-accent-color-small: #{$color-primary-100};
+        --card-accent-color-small: #C2D0F2;
 
         &.summary-card--small {
             background-color: var(--card-accent-color-small);
@@ -62,7 +62,7 @@
     }
 
     &--cyan {
-        --card-accent-color-small: #43D2D5;
+        --card-accent-color-small: #C2D0F2;
 
         &.summary-card--small {
             background-color: var(--card-accent-color-small);
