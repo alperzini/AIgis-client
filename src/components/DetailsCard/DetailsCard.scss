@@ -1,0 +1,35 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+
+.details-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: pxToRem(200);
+    height: pxToRem(100);
+    padding: pxToRem(8) pxToRem(12);
+    border: 0.25px solid #98ABD9;
+    border-radius: pxToRem(12);
+    background-color: $color-neutral-100;
+
+    .typography--h3,
+    .typography--h2,
+    .typography--p2 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    &__top-wrapper {
+        align-self: flex-start;
+    }
+
+    &__top-header {}
+
+    &__bottom-wrapper {
+        align-self: flex-end;
+    }
+
+    &__bottom-header {}
+
+    &__bottom-text {}
+}
