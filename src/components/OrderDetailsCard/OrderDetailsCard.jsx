@@ -1,30 +1,54 @@
 import "./OrderDetailsCard.scss";
+import Typography from "../Typography/Typography";
 
-function OrderDetailsCard() {
+function OrderDetailsCard({
+  date = "12-02-2025",
+  timeSince = "12:00:00 a.m.",
+  distance = "1234.00 mi",
+}) {
   return (
-    <section className="order-card" aria-label="Order Details">
+    <section className="order-card" aria-labelledby="order-card-title">
       <header className="order-card__header">
-        <h2 className="order-card__title">Order Details</h2>
+        <Typography
+          variant="h2"
+          as="h2"
+          className="order-card__title"
+          id="order-card-title"
+        >
+          Order Details
+        </Typography>
       </header>
 
       <div className="order-card__body">
         <div className="order-card__row">
-          <div className="order-card__label">Date</div>
-          <div className="order-card__value">12-02-2025</div>
+          <Typography variant="p4" as="div" className="order-card__label">
+            Date
+          </Typography>
+          <Typography variant="h3" as="div" className="order-card__value">
+            {date}
+          </Typography>
         </div>
 
-        <div className="order-card__rule" />
+        <div className="order-card__rule" aria-hidden="true" />
 
         <div className="order-card__row">
-          <div className="order-card__label">Time since Previous Purchase</div>
-          <div className="order-card__value">12:00:00 am est</div>
+          <Typography variant="p4" as="div" className="order-card__label">
+            Last Purchase
+          </Typography>
+          <Typography variant="h3" as="div" className="order-card__value">
+            {timeSince}
+          </Typography>
         </div>
 
-        <div className="order-card__rule" />
+        <div className="order-card__rule" aria-hidden="true" />
 
         <div className="order-card__row">
-          <div className="order-card__label">Distance From</div>
-          <div className="order-card__value">000.00 mi / 000.00 km</div>
+          <Typography variant="p4" as="div" className="order-card__label">
+            Distance
+          </Typography>
+          <Typography variant="h3" as="div" className="order-card__value">
+            {distance}
+          </Typography>
         </div>
       </div>
     </section>

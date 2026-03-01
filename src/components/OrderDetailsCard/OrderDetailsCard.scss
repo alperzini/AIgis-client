@@ -11,15 +11,12 @@
 
 .order-card__header {
   padding: pxToRem(14) pxToRem(18);
-  background: $color-primary-500;
-  color: $color-white;
+  background: $color-primary-100;
 }
 
 .order-card__title {
-  margin: 0;
-  font-size: pxToRem(14);
-  font-weight: 800;
-  letter-spacing: 0.2px;
+  color: $color-white;
+  font-weight: 700;
 }
 
 .order-card__body {
@@ -35,22 +32,19 @@
 }
 
 .order-card__label {
-  font-size: pxToRem(13);
+  min-width: pxToRem(220);
+  color: rgba($color-text, 0.85);
   font-weight: 700;
-  color: rgba($color-text, 0.9);
-  min-width: pxToRem(200);
 }
 
 .order-card__value {
-  font-size: pxToRem(20);
-  font-weight: 900;
-  color: $color-text;
   text-align: right;
+  font-weight: 400;
   white-space: nowrap;
 }
 
 .order-card__rule {
-  height: pxToRem(2);
+  height: pxToRem(0.25);
   margin: pxToRem(14) 0;
   border-radius: pxToRem(2);
   background: rgba($color-primary-500, 0.55);

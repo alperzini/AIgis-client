@@ -2,70 +2,64 @@
 @use "../../styles/functions" as *;
 
 .acct-card {
-background: $color-white;
-border: 1px solid rgba($color-black, 0.08);
-border-radius: pxToRem(18);
-overflow: hidden;
-box-shadow: 0 pxToRem(10) pxToRem(30) rgba($color-black, 0.06);
+  background: $color-white;
+  border: 1px solid rgba($color-black, 0.08);
+  border-radius: pxToRem(18);
+  overflow: hidden;
+  box-shadow: 0 pxToRem(10) pxToRem(30) rgba($color-black, 0.06);
 }
 
 .acct-card__header {
-padding: pxToRem(14) pxToRem(18);
-background: $color-primary-500;
-color: $color-white;
+  padding: pxToRem(14) pxToRem(18);
+  background: $color-primary-100;
 }
 
 .acct-card__title {
-margin: 0;
-font-size: pxToRem(14);
-font-weight: 800;
-letter-spacing: 0.2px;
+  color: $color-white;
+  font-weight: 700;
 }
 
 .acct-card__body {
-padding: pxToRem(16) pxToRem(18);
-background: rgba($color-black, 0.02);
-display: grid;
-grid-template-columns: 1fr pxToRem(1) 1fr;
-gap: pxToRem(16);
-align-items: center;
+  padding: pxToRem(16) pxToRem(18);
+  background: rgba($color-black, 0.02);
+  display: grid;
+  grid-template-columns: 1fr pxToRem(1) 1fr;
+  gap: pxToRem(16);
+  align-items: center;
 }
 
 .acct-card__cell {
-min-width: 0;
+  min-width: 0;
 }
 
 .acct-card__cell--right {
-text-align: right;
+  text-align: right;
 }
 
 .acct-card__label {
-font-size: pxToRem(12);
-font-weight: 700;
-color: $color-text-muted;
+  color: $color-text-muted;
+  font-weight: 700;
 }
 
 .acct-card__value {
-margin-top: pxToRem(6);
-font-size: pxToRem(18);
-font-weight: 800;
-color: $color-text;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
+  margin-top: pxToRem(8);
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .acct-card__value--mono {
-letter-spacing: 1px;
+  letter-spacing: 1px;
 }
 
 .acct-card__value--strong {
-font-size: pxToRem(20);
+  font-size: pxToRem(22);
 }
 
 .acct-card__divider {
-width: pxToRem(1);
-height: pxToRem(46);
-background: rgba($color-primary-500, 0.55);
-border-radius: pxToRem(1);
+  width: pxToRem(1);
+  height: pxToRem(46);
+  background: rgba($color-primary-500, 0.55);
+  border-radius: pxToRem(1);
 }
