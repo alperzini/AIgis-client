@@ -3,28 +3,27 @@
 @use "../../styles/mixins" as *;
 
 .table-row-header {
-    display: none;
+
+    background-color: $color-success-500;
+    display: flex;
 
     .typography--h4 {
         margin-top: 0;
         margin-bottom: 0;
     }
 
-    @include tablet {
-        display: flex;
-        padding: pxToRem(11) pxToRem(32) pxToRem(11) pxToRem(32);
-        column-gap: pxToRem(45);
-        box-shadow: 0px 2px 5px 0px rgba($color-primary-black, 0.1);
-    }
+    padding: pxToRem(11) pxToRem(40) pxToRem(11) pxToRem(40);
 
-    @include desktop {
-        padding: pxToRem(11) pxToRem(40) pxToRem(11) pxToRem(40);
-    }
 
     &__cell {
         display: flex;
         align-items: center;
         justify-content: flex-start;
+        min-width: 0;
+
+        // &--actions {
+        //     justify-content: center;
+        // }
     }
 
     &__sort-button {
@@ -34,7 +33,6 @@
         justify-content: center;
         align-items: center;
         line-height: 1;
-        background-color: $color-background-light-grey;
     }
 
     &__sort-icon {

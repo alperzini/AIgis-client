@@ -35,6 +35,8 @@ const TableRowHeader = ({ headers = [], data = [], setData }) => {
 
     return (
         <div className="table-row-header">
+
+            <div className="table-row-header__cell table-row-header__cell--actions" style={{ flex: 0.5 }}></div>
             {headers.map(({ label, key, flex }, index) => (
                 <div
                     key={index}
@@ -56,6 +58,7 @@ const TableRowHeader = ({ headers = [], data = [], setData }) => {
                     </button>
                 </div>
             ))}
+            <div className="table-row-header__cell table-row-header__cell--edit" style={{ flex: 1 }}></div>
         </div>
     );
 };
