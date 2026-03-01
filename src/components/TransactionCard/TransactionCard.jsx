@@ -275,7 +275,8 @@ const TransactionCard = ({ transaction }) => {
         {isExpanded && (
           <div className="transaction-card__expanded">
             <div className="transaction-card__flag">
-              <span>AIGis Flagged: Highlight which item pinged the flag</span>
+              <span>AIG is Flagged: If the decision isn’t clear, escalate the transaction for further review, or proceed to Approve or Block.</span>
+              <p className="pca-description"> Our AI uses Principal Component Analysis (PCA) to identify unusual patterns across multiple transaction variables. PCA doesn’t guess — it highlights statistically meaningful anomalies based on real behavioral trends, helping you make confident escalation decisions.</p>
 
               {/* action buttons */}
               <div className="transaction-card__actions">
@@ -304,10 +305,11 @@ const TransactionCard = ({ transaction }) => {
 
             {/* escalation fields */}
             <div className="transaction-card__escalation">
-              <div className="field">
+              <div className="transaction-card__escalation__field">
                 <label>Notify</label>
                 <select
                   value={notifyValue}
+                  className="transaction-card__escalation__field--input"
                   onChange={(e) => setNotifyValue(e.target.value)}
                 >
                   <option value="">Please select</option>
@@ -317,10 +319,11 @@ const TransactionCard = ({ transaction }) => {
                 </select>
               </div>
 
-              <div className="field">
+              <div className="transaction-card__escalation__field">
                 <label>Reasoning for Escalation</label>
                 <select
                   value={reasonValue}
+                  className="transaction-card__escalation__field--input"
                   onChange={(e) => setReasonValue(e.target.value)}
                 >
                   <option value="">Please select</option>
@@ -330,11 +333,12 @@ const TransactionCard = ({ transaction }) => {
                 </select>
               </div>
 
-              <div className="field">
+              <div className="transaction-card__escalation__field">
                 <label>Comments</label>
                 <input
                   type="text"
-                  placeholder="Item Name"
+                  placeholder="Additional Details"
+                  className="transaction-card__escalation__field--input"
                   value={commentValue}
                   onChange={(e) => setCommentValue(e.target.value)}
                 />
