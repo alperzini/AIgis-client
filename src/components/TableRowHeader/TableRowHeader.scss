@@ -1,0 +1,44 @@
+@use "../../styles/functions" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.table-row-header {
+
+    background-color: $color-success-500;
+    display: flex;
+
+    .typography--h4 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    padding: pxToRem(11) pxToRem(40) pxToRem(11) pxToRem(40);
+
+
+    &__cell {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        min-width: 0;
+        color: $color-neutral-100;
+
+        // &--actions {
+        //     justify-content: center;
+        // }
+    }
+
+    &__sort-button {
+        all: unset;
+        cursor: pointer;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 1;
+    }
+
+    &__sort-icon {
+        display: block;
+        transform: scale(0.75);
+        transform-origin: center;
+    }
+}
