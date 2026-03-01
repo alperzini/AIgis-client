@@ -1,0 +1,16 @@
+@use "../../styles/functions" as *;
+
+.top-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: pxToRem(12);
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  width: 100%;
+  min-width: 0;
+}
+
+.top-right > * {
+  flex: 0 0 auto;
+}

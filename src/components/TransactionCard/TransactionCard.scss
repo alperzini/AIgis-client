@@ -3,69 +3,104 @@
 @use "../../styles/mixins" as *;
 
 .transaction-card {
+  display: flex;
+  flex-direction: column;
+  font-family: $font-family-primary;
+
+  background-color: $color-card;
+  color: $color-text;
+  border: 1px solid $color-border;
+  border-radius: toRem(12);
+  padding: toRem(16);
+  margin-bottom: toRem(16);
+
+  &--low {
+    background-color: $color-status-allow-bg;
+    border-color: $color-success-200;
+  }
+
+  &--medium {
+    background-color: $color-status-review-bg;
+    border-color: $color-warning-200;
+  }
+
+  &--high {
+    background-color: $color-status-block-bg;
+    border-color: $color-failure-200;
+  }
+
+  &__header {
     display: flex;
-    flex-direction: column;
-    font-family: $font-family-primary;
-    background-color: rgb(84, 84, 84);
-    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: toRem(12);
+  }
 
-    &--low {
-        background-color: $color-success-100;
-        border: 1px solid #28a745;
+  &__icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: toRem(8);
+    border-radius: toRem(8);
+    color: $color-text-muted;
+
+    &:hover {
+      background-color: rgba($color-neutral-200, 0.45);
+      color: $color-text;
     }
 
-    &--medium {
-        background-color: $color-warning-100;
-        border: 1px solid #ff9800;
+    &:focus-visible {
+      outline: toRem(2) solid $color-link;
+      outline-offset: toRem(2);
     }
+  }
 
-    &--high {
-        background-color: $color-failure-100;
-        border: 1px solid #f44336;
+  &__expanded {
+    margin-top: toRem(16);
+    padding-top: toRem(16);
+    border-top: 1px solid $color-border;
+  }
+
+  &__actions {
+    display: flex;
+    gap: toRem(12);
+    margin: toRem(16) 0;
+    flex-wrap: wrap;
+  }
+
+  &__escalation {
+    display: flex;
+    gap: toRem(16);
+    flex-wrap: wrap;
+  }
+
+  .btn--approve {
+    background: $color-success-400;
+    color: $color-white;
+
+    &:hover {
+      background: $color-success-500;
     }
+  }
 
-    &__header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+  .btn--block {
+    background: $color-failure-400;
+    color: $color-white;
+
+    &:hover {
+      background: $color-failure-500;
     }
+  }
 
-    &____icon-btn {
-        background: none;
-        border: none;
-        cursor: pointer;
+  .btn--escalate {
+    background: $color-secondary-400;
+    color: $color-white;
+
+    &:hover {
+      background: $color-secondary-500;
     }
-
-    &__expanded {
-        margin-top: 20px;
-        padding-top: 16px;
-        border-top: 1px solid #eee;
-    }
-
-    &__actions {
-        display: flex;
-        gap: 12px;
-        margin: 16px 0;
-    }
-
-    &__escalation {
-        display: flex;
-        gap: 16px;
-    }
-
-    .btn--approve {
-        background: #6b8e5a;
-        color: white;
-    }
-
-    .btn--block {
-        background: #c27c5e;
-        color: white;
-    }
-
-    .btn--escalate {
-        background: #0f7c7a;
-        color: white;
-    }
-
+  }
 }
