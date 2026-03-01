@@ -1,24 +1,55 @@
 @use "../../styles/variables" as *;
 @use "../../styles/functions" as *;
 
-.layout {
+.app-layout {
   display: grid;
-  grid-template-columns: pxToRem(240) 1fr;
+  grid-template-columns: pxToRem(320) 1fr;
   min-height: 100vh;
-  background: $color-bg; 
+  background: $color-bg;
 }
 
-.layout__sidebar {
-  background: $color-neutral-500; 
-  color: $color-white;
-  border-right: 1px solid rgba($color-black, 0.08);
+.app-layout__right {
+  min-height: 100vh;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-.layout__content {
+.app-layout__header {
+  padding: pxToRem(20) pxToRem(24) 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: nowrap;
+  min-width: 0;
+  width: 100%;
+}
+
+.app-layout__content {
+  flex: 1;
   padding: pxToRem(24);
+  min-width: 0;
+  
 }
 
-.layout__content-inner {
-  max-width: $max-width-lg;
-  margin: 0 auto;
+.app-layout__page {
+  background: $color-card;
+  border: 1px solid $color-border;
+  border-radius: pxToRem(16);
+  padding: pxToRem(24);
+  min-height: calc(100vh - #{pxToRem(160)});
+  animation: pageIn 180ms ease-out;
+  will-change: transform, opacity;
+  min-width: 0;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(pxToRem(8));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

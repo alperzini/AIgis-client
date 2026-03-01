@@ -1,0 +1,35 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+
+.risk-breakdown-card {
+  background: $color-white;
+  border: 1px solid rgba($color-black, 0.08);
+  border-radius: pxToRem(18);
+  padding: pxToRem(20);
+  box-shadow: 0 pxToRem(6) pxToRem(24) rgba($color-black, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.risk-breakdown-card__title {
+  margin: 0 0 pxToRem(16) 0;
+  font-size: pxToRem(18);
+  font-weight: 700;
+  color: $color-text;
+}
+
+.risk-breakdown-card__body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: pxToRem(12) 0;
+}
+
+.risk-breakdown-card__img {
+  max-width: 75%;
+  max-height: pxToRem(340);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: pxToRem(12);
+}

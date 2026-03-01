@@ -3,6 +3,33 @@
 @use "../../styles/mixins" as *;
 
 .transaction-card {
+  display: flex;
+  flex-direction: column;
+  font-family: $font-family-primary;
+
+  background-color: $color-card;
+  color: $color-text;
+  border: 1px solid $color-border;
+  border-radius: toRem(12);
+  padding: toRem(16);
+  margin-bottom: toRem(16);
+
+  &--low {
+    background-color: $color-status-allow-bg;
+    border-color: $color-success-200;
+  }
+
+  &--medium {
+    background-color: $color-status-review-bg;
+    border-color: $color-warning-200;
+  }
+
+  &--high {
+    background-color: $color-status-block-bg;
+    border-color: $color-failure-200;
+  }
+
+  &__header {
     display: flex;
     flex-direction: column;
     font-family: $font-family-primary;
@@ -122,17 +149,20 @@
         margin-top: 20px;
         padding-top: 16px;
     }
+  }
 
-    &__actions {
-        display: flex;
-        gap: 12px;
-        margin: 16px 0;
-    }
+  &__expanded {
+    margin-top: toRem(16);
+    padding-top: toRem(16);
+    border-top: 1px solid $color-border;
+  }
 
-    &__escalation {
-        display: flex;
-        gap: 16px;
-    }
+  &__actions {
+    display: flex;
+    gap: toRem(12);
+    margin: toRem(16) 0;
+    flex-wrap: wrap;
+  }
 
     .active-btn {
     &--approve {
@@ -144,11 +174,17 @@
         background: #c27c5e;
         color: white;
     }
+  }
+
+  .btn--block {
+    background: $color-failure-400;
+    color: $color-white;
 
     &--escalate {
         background: #0f7c7a;
         color: white;
     }
+  }
 
 
     &--user-approved {

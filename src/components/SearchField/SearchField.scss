@@ -1,0 +1,60 @@
+@use "../../styles/variables" as *;
+@use "../../styles/functions" as *;
+
+.search {
+  position: relative;
+
+  &__icon {
+    position: absolute;
+    left: pxToRem(12);
+    top: 50%;
+    transform: translateY(-50%);
+    width: pxToRem(18);
+    height: pxToRem(18);
+    opacity: 0.85;
+  }
+
+  &__input {
+    width: 100%;
+    height: pxToRem(44);
+    padding: 0 pxToRem(14) 0 pxToRem(40);
+
+    border-radius: pxToRem(16);
+    border: 1px solid rgba($color-white, 0.14);
+    background: rgba($color-white, 0.10);
+
+    color: $color-white;
+    outline: none;
+
+    &::placeholder {
+      color: rgba($color-white, 0.75);
+    }
+
+    &:focus {
+      border-color: rgba($color-white, 0.35);
+      background: rgba($color-white, 0.12);
+    }
+  }
+}
+
+.search--light {
+  .search__input {
+    background: $color-white;
+    border-color: rgba($color-black, 0.08);
+    color: $color-neutral-500;
+
+    &::placeholder {
+      color: rgba($color-neutral-300, 0.95);
+    }
+
+    &:focus {
+      border-color: rgba($color-primary-200, 0.35);
+      background: $color-white;
+    }
+  }
+
+  .search__icon {
+    opacity: 0.8;
+    filter: none;
+  }
+}

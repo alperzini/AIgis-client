@@ -1,17 +1,20 @@
-import PageWrapper from "../../components/PageWrapper/PageWrapper";
 import "./DashboardPage.scss";
+import AlertVolumeCard from "../../components/AlertVolumeCard/AlertVolumeCard";
+import RiskBreakdownCard from "../../components/RiskBreakdownCard/RiskBreakdownCard";
 
 function DashboardPage() {
-return (
+  return (
     <main className="dashboard-page">
-    <PageWrapper>
-    <h1 className="dashboard-page__title">Dashboard</h1>
-    <p className="dashboard-page__text">
-        Summary + charts will go here.
-    </p>
-    </PageWrapper>
+      <div className="dashboard-page__header">
+        <h1 className="dashboard-page__title">AIgis Overview</h1>
+      </div>
+
+      <div className="dashboard-page__charts">
+        <AlertVolumeCard />
+        <RiskBreakdownCard />
+      </div>
     </main>
-);
+  );
 }
 
 export default DashboardPage;
