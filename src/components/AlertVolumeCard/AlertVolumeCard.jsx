@@ -5,7 +5,7 @@ function AlertVolumeCard() {
   return (
     <div className="alert-volume-card">
       <h2 className="alert-volume-card__title">
-        Alert Volume Trend
+      Alert Volume Insight
       </h2>
 
       <div className="alert-volume-card__body">

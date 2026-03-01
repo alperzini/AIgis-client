@@ -5,14 +5,15 @@
   background: $color-white;
   border: 1px solid rgba($color-black, 0.08);
   border-radius: pxToRem(18);
-  padding: pxToRem(20);
-  box-shadow: 0 pxToRem(6) pxToRem(24) rgba($color-black, 0.06);
+  padding: pxToRem(24);
+  box-shadow: 0 pxToRem(8) pxToRem(28) rgba($color-black, 0.06);
   display: flex;
   flex-direction: column;
+  gap: pxToRem(18);
 }
 
 .alert-volume-card__title {
-  margin: 0 0 pxToRem(16) 0;
+  margin: 0;
   font-size: pxToRem(18);
   font-weight: 700;
   color: $color-text;
@@ -22,10 +23,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  padding: pxToRem(20);
+  border-radius: pxToRem(16);
+
+  background: rgba($color-black, 0.02);
+  border: 1px solid rgba($color-black, 0.06);
+
+  overflow: hidden;
 }
 
+/* Static Image — Exact Figma Size */
 .alert-volume-card__img {
-  width: 100%;
-  height: auto;
+  width: pxToRem(584);
+  height: pxToRem(292);
+  display: block;
   border-radius: pxToRem(12);
+
+  /* Smooth load animation */
+  opacity: 0;
+  transform: translateY(pxToRem(8));
+  animation: chartFadeIn 420ms ease-out forwards;
+}
+
+/* Smooth appearance */
+@keyframes chartFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

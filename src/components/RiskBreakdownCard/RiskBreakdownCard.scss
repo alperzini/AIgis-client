@@ -4,7 +4,7 @@
 .risk-breakdown-card {
   background: $color-white;
   border: 1px solid rgba($color-black, 0.08);
-  border-radius: pxToRem(18);
+  border-radius: pxToRem(12);
   padding: pxToRem(20);
   box-shadow: 0 pxToRem(6) pxToRem(24) rgba($color-black, 0.06);
   display: flex;
@@ -26,10 +26,10 @@
 }
 
 .risk-breakdown-card__img {
-  max-width: 75%;
+  max-width: 100%;
   max-height: pxToRem(340);
   width: auto;
   height: auto;
   object-fit: contain;
-  border-radius: pxToRem(12);
+  border-radius: pxToRem(4);
 }
