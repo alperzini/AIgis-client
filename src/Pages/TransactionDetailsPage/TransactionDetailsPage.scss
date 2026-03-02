@@ -168,7 +168,7 @@
     &__bottom-wrapper {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         gap: pxToRem(16);
     }
 
@@ -178,5 +178,115 @@
 
     &__bottom-right-wrapper {
         flex: 1;
+    }
+}
+
+
+.transaction-details-page {
+    &__header-buttons-wrapper {
+    .button,
+    .btn {
+        border-radius: 999px;
+        font-weight: 600;
+        transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+
+        &:hover {
+        transform: translateY(pxToRem(-1));
+        box-shadow: 0 pxToRem(8) pxToRem(18) rgba($color-black, 0.12);
+        }
+
+        &:active {
+        transform: translateY(0);
+        box-shadow: none;
+        }
+
+        &:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 pxToRem(3) rgba($color-primary-100, 0.35);
+        }
+    }
+
+    .button--primary,
+    .btn--primary {
+        background-color: $color-primary-200;
+        color: $color-white;
+
+        &:hover {
+        background-color: $color-primary-300;
+        }
+    }
+
+    .button--delete,
+    .btn--delete {
+        background-color: $color-failure-400;
+        color: $color-white;
+
+        &:hover {
+        background-color: $color-failure-400, 6%;
+        }
+    }
+
+    .button--primary:nth-of-type(3),
+    .btn--primary:nth-of-type(3) {
+        background-color: $color-primary-100;
+        color: $color-white;
+
+        &:hover {
+        background-color: $color-primary-200;
+        }
+    }
+    }
+}
+
+.confirm-modal {
+    &__backdrop {
+    background: rgba($color-black, 0.55);
+    backdrop-filter: blur(pxToRem(4));
+    }
+
+    &__content {
+    border-radius: pxToRem(16);
+    border: 1px solid rgba($color-black, 0.08);
+    box-shadow: 0 pxToRem(18) pxToRem(40) rgba($color-black, 0.2);
+    }
+
+    &__title {
+    font-weight: 800;
+    color: $color-primary-500;
+    }
+
+    &__btn {
+    border-radius: 999px;
+    padding: pxToRem(10) pxToRem(18);
+    font-weight: 700;
+    transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+
+    &:hover {
+        transform: translateY(pxToRem(-1));
+        box-shadow: 0 pxToRem(10) pxToRem(22) rgba($color-black, 0.14);
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: none;
+    }
+    }
+
+    &__btn--cancel {
+    background: rgba($color-black, 0.06);
+    color: rgba($color-text, 0.85);
+
+    &:hover {
+        background: rgba($color-black, 0.1);
+    }
+    }
+
+    &__btn--confirm {
+    background: $color-primary-200;
+    color: $color-white;
+
+    &:hover {
+        background: $color-primary-300;
+    }
     }
 }
