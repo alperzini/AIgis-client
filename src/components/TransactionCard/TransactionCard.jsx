@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import "./TransactionCard.scss";
 import EditIcon from "../../assets/icons/edit-24px.svg";
@@ -6,35 +7,30 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import ConfirmModal from "../ConfirmModal/ConfirmModal";
 
-const baseUrl = import.meta.env.VITE_API_BASE_URL; // e.g. http://localhost:8080
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const TransactionCard = ({ transaction }) => {
   const navigate = useNavigate();
 
   const [isExpanded, setIsExpanded] = useState(false);
-
-  // Local status state, initialized from DB
   const [status, setStatus] = useState(transaction.status || "");
 
-  // Escalation form state
   const [notifyValue, setNotifyValue] = useState("");
   const [reasonValue, setReasonValue] = useState("");
   const [commentValue, setCommentValue] = useState("");
 
-  // Confirm modal
   const [modalState, setModalState] = useState({
     open: false,
-    type: null, // "approve" | "block" | "escalate"
+    type: null,
   });
 
-  // Base risk class
+  const [escalateError, setEscalateError] = useState("");
+
   const risk = transaction.risk_band?.toLowerCase();
   const riskClass = `transaction-card--${risk}`;
 
-  // Effective status (prefer local state, fallback to DB)
   const effectiveStatus = (status || transaction.status || "").toLowerCase();
 
-  // Extra classes based on user decision
   let statusClass = "";
   if (effectiveStatus === "user approved") {
     statusClass = "transaction-card--user-approved";
@@ -44,7 +40,6 @@ const TransactionCard = ({ transaction }) => {
     statusClass = "transaction-card--pending-review";
   }
 
-  // canEdit: only auto Allow + Medium AND no user decision yet
   const recommended = transaction.recommended_action?.toLowerCase();
   const riskBand = transaction.risk_band?.toLowerCase();
 
@@ -53,22 +48,18 @@ const TransactionCard = ({ transaction }) => {
     effectiveStatus === "user blocked" ||
     effectiveStatus === "pending review";
 
-  const canEdit = recommended === "allow" && riskBand === "medium" && !hasUserDecision;
-
-  //Formatting helpers 
+  const canEdit =
+    recommended === "allow" && riskBand === "medium" && !hasUserDecision;
 
   const formatDate = (isoString) => {
     const date = new Date(isoString);
-
     const day = String(date.getDate()).padStart(2, "0");
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const year = date.getFullYear();
-
     let hours = date.getHours();
     const minutes = String(date.getMinutes()).padStart(2, "0");
     const ampm = hours >= 12 ? "PM" : "AM";
     hours = hours % 12 || 12;
-
     return `${day}-${month}-${year} ${hours}:${minutes} ${ampm}`;
   };
 
@@ -77,37 +68,24 @@ const TransactionCard = ({ transaction }) => {
     return uuid.split("-")[0].toUpperCase();
   };
 
-  // Status label — prefers status from DB/local, falls back to auto logic
   const getDisplayStatus = () => {
-    // 1) If user already decided, always show that
     if (effectiveStatus === "user approved") return "User Approved";
     if (effectiveStatus === "user blocked") return "User Blocked";
     if (effectiveStatus === "pending review") return "Pending Review";
 
-    // 2) Otherwise fall back to original automatic logic
     const rec = recommended;
     const riskLevel = riskBand;
 
-    if (rec === "block") {
-      return "Auto Blocked";
-    }
+    if (rec === "block") return "Auto Blocked";
 
     if (rec === "allow") {
-      if (riskLevel === "medium") {
-        return "Open for User Review";
-      }
-      if (riskLevel === "low") {
-        return "Auto Approved";
-      }
-      if (riskLevel === "high") {
-        return "";
-      }
+      if (riskLevel === "medium") return "Open for User Review";
+      if (riskLevel === "low") return "Auto Approved";
+      if (riskLevel === "high") return "";
     }
 
     return transaction.recommended_action;
   };
-
-  // Modal config text 
 
   const modalTitle =
     modalState.type === "approve"
@@ -136,14 +114,13 @@ const TransactionCard = ({ transaction }) => {
       ? "Yes, Escalate"
       : "Confirm";
 
-  //Modal handlers
-
   const openModal = (type) => {
     setModalState({ open: true, type });
   };
 
   const closeModal = () => {
     setModalState({ open: false, type: null });
+    setEscalateError("");
   };
 
   const handleConfirm = async () => {
@@ -159,6 +136,13 @@ const TransactionCard = ({ transaction }) => {
         });
         setStatus("User Blocked");
       } else if (modalState.type === "escalate") {
+        if (!notifyValue || !reasonValue) {
+          setEscalateError(
+            "Please select Notify and Reasoning for Escalation before submitting."
+          );
+          return; // keep modal open
+        }
+
         await axios.patch(`${baseUrl}/transactions/${transaction.id}`, {
           status: "Pending Review",
           notify: notifyValue,
@@ -170,13 +154,12 @@ const TransactionCard = ({ transaction }) => {
     } catch (err) {
       console.error("Failed to update transaction", err);
     } finally {
-      // Close modal and collapse the dropdown after confirming
-      closeModal();
-      setIsExpanded(false);
+      if (modalState.type !== "escalate" || (notifyValue && reasonValue)) {
+        closeModal();
+        setIsExpanded(false);
+      }
     }
   };
-
-  // Button click handlers
 
   const handleApproveClick = (e) => {
     e.preventDefault();
@@ -193,22 +176,14 @@ const TransactionCard = ({ transaction }) => {
   const handleEscalateClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
-
-    if (!notifyValue || !reasonValue) {
-      alert("Please select Notify and Reasoning for Escalation before escalating.");
-      return;
-    }
-
+    setEscalateError("");
     openModal("escalate");
   };
 
   return (
     <>
-      {/* Card */}
       <div className={`transaction-card ${riskClass} ${statusClass}`}>
-        {/* Header */}
         <div className="transaction-card__header">
-          {/* Details chevron */}
           <div className="transaction-card__details-btn-wrapper">
             <button
               type="button"
@@ -227,17 +202,11 @@ const TransactionCard = ({ transaction }) => {
             </button>
           </div>
 
-          <h3 className="transaction-card__id">
-            {formatAccountId(transaction.id)}
-          </h3>
-
+          <h3 className="transaction-card__id">{formatAccountId(transaction.id)}</h3>
           <p className="transaction-card__date">
             {formatDate(transaction.transaction_datetime)}
           </p>
-
-          <p className="transaction-card__amount">
-            ${transaction.amount}
-          </p>
+          <p className="transaction-card__amount">${transaction.amount}</p>
 
           <span
             className={`transaction-card__risk-pill transaction-card__risk-pill--${transaction.risk_band.toLowerCase()}`}
@@ -245,11 +214,8 @@ const TransactionCard = ({ transaction }) => {
             {transaction.risk_band.toUpperCase()}
           </span>
 
-          <p className="transaction-card__status">
-            {getDisplayStatus()}
-          </p>
+          <p className="transaction-card__status">{getDisplayStatus()}</p>
 
-          {/* edit button – only show if canEdit is true */}
           <div className="transaction-card__button-field">
             {canEdit && (
               <button
@@ -263,47 +229,47 @@ const TransactionCard = ({ transaction }) => {
                 aria-label={`Edit transaction ${transaction.id}`}
               >
                 <img src={EditIcon} alt="Edit" />
-                <span className="transaction-card__icon-btn--edit-text">
-                  Edit
-                </span>
+                <span className="transaction-card__icon-btn--edit-text">Edit</span>
               </button>
             )}
           </div>
         </div>
 
-        {/* expanded section */}
         {isExpanded && (
           <div className="transaction-card__expanded">
             <div className="transaction-card__flag">
-              <span>AIG is Flagged: If the decision isn’t clear, escalate the transaction for further review, or proceed to Approve or Block.</span>
-              <p className="pca-description"> Our AI uses Principal Component Analysis (PCA) to identify unusual patterns across multiple transaction variables. PCA doesn’t guess — it highlights statistically meaningful anomalies based on real behavioral trends, helping you make confident escalation decisions.</p>
+              <span>
+                AIG is Flagged: If the decision isn’t clear, escalate the transaction
+                for further review, or proceed to Approve or Block.
+              </span>
+              <p className="pca-description">
+                Our AI uses Principal Component Analysis (PCA) to identify unusual
+                patterns across multiple transaction variables. PCA doesn’t guess — it
+                highlights statistically meaningful anomalies based on real behavioral
+                trends, helping you make confident escalation decisions.
+              </p>
 
-              {/* action buttons */}
               <div className="transaction-card__actions">
-                <button
-                  className="active-btn active-btn--approve"
-                  onClick={handleApproveClick}
-                >
+                <button className="active-btn active-btn--approve" onClick={handleApproveClick}>
                   Approve
                 </button>
 
-                <button
-                  className="active-btn active-btn--block"
-                  onClick={handleBlockClick}
-                >
+                <button className="active-btn active-btn--block" onClick={handleBlockClick}>
                   Block
                 </button>
 
-                <button
-                  className="active-btn active-btn--escalate"
-                  onClick={handleEscalateClick}
-                >
+                <button className="active-btn active-btn--escalate" onClick={handleEscalateClick}>
                   Escalate
                 </button>
               </div>
+
+              {escalateError ? (
+                <p className="transaction-card__error" role="alert">
+                  {escalateError}
+                </p>
+              ) : null}
             </div>
 
-            {/* escalation fields */}
             <div className="transaction-card__escalation">
               <div className="transaction-card__escalation__field">
                 <label>Notify</label>
@@ -348,7 +314,6 @@ const TransactionCard = ({ transaction }) => {
         )}
       </div>
 
-      {/* Confirm modal */}
       <ConfirmModal
         isOpen={modalState.open}
         title={modalTitle}
