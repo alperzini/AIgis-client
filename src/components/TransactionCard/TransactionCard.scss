@@ -32,56 +32,43 @@
         align-items: center;
         justify-content: space-around;
         padding-left: 2rem;
-
     }
 
     &__details-btn-wrapper {
         flex: 0.5;
-
     }
 
     &__details-btn {
-        background: none; // removes background
-        border: none; // removes border
-        padding: 0; // no spacing around the icon
+        background: none;
+        border: none;
+        padding: 0;
         cursor: pointer;
-        display: inline-flex; // align icon nicely
+        display: inline-flex;
         align-items: center;
         justify-content: center;
 
-        // Optional: subtle hover effect
         &:hover {
             opacity: 0.7;
         }
     }
 
-    &__id {
-        flex: 1;
-    }
-
-    &__date {
-        flex: 1.5;
-    }
-
-    &__amount {
-        flex: 1;
-    }
+    &__id { flex: 1; }
+    &__date { flex: 1.5; }
+    &__amount { flex: 1; }
 
     &__status {
         flex: 2;
         margin-left: 3rem;
     }
 
-
     &__risk-pill {
         flex: 0.75;
         padding: 0.4rem;
-        border-radius: 10px;
-        font-size: toRem(12);
+        border-radius: 999px;
+        font-size: pxToRem(12);
         font-weight: 700;
         letter-spacing: 0.5px;
         text-align: center;
-
 
         &--low {
             background-color: $color-success-400;
@@ -101,8 +88,9 @@
 
     &__expanded {
         background-color: #FFF;
+        margin-top: 20px;
+        padding: 16px 2rem 2rem 2rem;
     }
-
 
     &__button-field {
         flex: 1;
@@ -122,16 +110,7 @@
             font-family: $font-family-primary;
             font-size: 1rem;
             font-weight: 600;
-
         }
-    }
-
-    &__expanded {
-        margin-top: 20px;
-        padding-top: 16px;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        padding-bottom: 2rem;
     }
 
     &__actions {
@@ -144,60 +123,88 @@
     &__escalation {
         display: flex;
         gap: 16px;
+        align-items: flex-end;
 
         &__field {
             display: flex;
             flex-direction: column;
-            gap: 0.2rem;
+            gap: 0.3rem;
 
             &--input {
-                padding: 0.5rem;
-                border-radius: 3rem;
+                padding: pxToRem(2) pxToRem(16);
+                border-radius: 999px;
+                border: 1px solid $color-neutral-200;
+                font-family: $font-family-primary;
+                font-size: pxToRem(14);
+                outline: none;
+                transition: all 0.2s ease;
+
+                &:focus {
+                    border-color: $color-supporting-300;
+                    box-shadow: 0 0 0 pxToRem(3) rgba(99, 102, 241, 0.15);
+                }
             }
         }
     }
 
     .active-btn {
         font-family: $font-family-primary;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-        border-radius: 0.8rem;
+        font-size: pxToRem(16);
+        font-weight: 600;
+        letter-spacing: 0.3px;
+
+        padding: pxToRem(8) pxToRem(28);
+        border-radius: 999px;
+        border: none;
         cursor: pointer;
 
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 pxToRem(6) pxToRem(14) rgba(0, 0, 0, 0.1);
+        }
+
+        &:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
         &--approve {
-            background: #6b8e5a;
-            color: white;
+            background-color: $color-success-400;
+            color: #ffffff;
         }
 
         &--block {
-            background: #c27c5e;
-            color: white;
+            background-color: $color-failure-400;
+            color: #ffffff;
         }
 
         &--escalate {
-            background: #0f7c7a;
-            color: white;
+            background-color:$color-primary-100;
+            ;
+            color: #ffffff;
         }
 
-
         &--user-approved {
-            background-color: #d6e8ff; // blue-ish
+            background-color: #E8F8EC;
+            color: #1B5E20;
         }
 
         &--user-blocked {
-            background-color: #ffd6d6; // red-ish
+            background-color: #FDECEA;
+            color: #B3261E;
         }
 
         &--pending-review {
-            background-color: #e7d9ff; // purple-ish
+            background-color: #EEF2FF;
+            color: #3730A3;
         }
-
-
-
     }
-
 }
 
 .pca-description {
