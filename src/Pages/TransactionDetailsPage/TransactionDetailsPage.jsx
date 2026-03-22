@@ -1,10 +1,10 @@
 import { useParams, useNavigate } from "react-router-dom";
-import PageWrapper from "../../components/PageWrapper/PageWrapper";
+import PageWrapper from "../../components/PageWrapper/PageWrapper.jsx";
 import "./TransactionDetailsPage.scss";
-import NotesThread from "../../components/NotesThread/NotesThread";
-import OrderDetailsCard from "../../components/OrderDetailsCard/OrderDetailsCard";
-import AccountSummaryCard from "../../components/AccountSummaryCard/AccountSummaryCard";
-import Typography from "../../components/Typography/Typography";
+import NotesThread from "../../components/NotesThread/NotesThread.jsx";
+import OrderDetailsCard from "../../components/OrderDetailsCard/OrderDetailsCard.jsx";
+import AccountSummaryCard from "../../components/AccountSummaryCard/AccountSummaryCard.jsx";
+import Typography from "../../components/Typography/Typography.jsx";
 import ArrowBack from "../../assets/icons/arrow_back-24px.svg";
 import Button from "../../components/Button/Button.jsx";
 import DetailsCard from "../../components/DetailsCard/DetailsCard.jsx";

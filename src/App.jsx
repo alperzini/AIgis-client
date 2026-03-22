@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Sidebar from "./components/Sidebar/Sidebar";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import TransactionsPage from "./pages/TransactionsPage/TransactionsPage";
 import TransactionDetailsPage from "./pages/TransactionDetailsPage/TransactionDetailsPage";
 import { fetchUpdate } from "./utils/apiRequests";
 import AppLayout from "./components/AppLayout/AppLayout";
 
-import LoginPage from "./Pages/LoginPage/LoginPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {

@@ -1,9 +1,9 @@
 import "./DashboardPage.scss";
-import AlertVolumeCard from "../../components/AlertVolumeCard/AlertVolumeCard";
-import RiskBreakdownCard from "../../components/RiskBreakdownCard/RiskBreakdownCard";
+import AlertVolumeCard from "../../components/AlertVolumeCard/AlertVolumeCard.jsx";
+import RiskBreakdownCard from "../../components/RiskBreakdownCard/RiskBreakdownCard.jsx";
 import SummaryCard from "../../components/SummaryCard/SummaryCard.jsx"
 import Typography from "../../components/Typography/Typography.jsx";
-import TransactionList from "../../components/TransactionList/TransactionList";
+import TransactionList from "../../components/TransactionList/TransactionList.jsx";
 import TableRowHeader from "../../components/TableRowHeader/TableRowHeader.jsx";
 
 function DashboardPage({ transactions, setTransactions }) {
