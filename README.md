@@ -1,10 +1,10 @@
 # AIgis Financial Dashboard
 
-This is the frontend of the AIgis Financial conceptual application — a dynamic financial health and transaction monitoring dashboard. The application provides personalized insights, transaction tracking, and account summaries. Developed as part of a BrainStation cross-collaboration industry project.
+Developed during a high-intensity 4-day hackathon, AIgis is a full-stack fraud detection platform built for small to medium businesses and financial institutions. As a Full-Stack Engineer, I collaborated with UX Design and Data Science teams to architect and implement an analyst dashboard that leverages PCA-transformed data and a Random Forest algorithm to identify fraudulent credit card transactions. The platform enables analysts to set automated thresholds for auto-approvals and auto-blocks, while flagging medium-probability transactions for manual review.
 
-**URL**: [https://aigis-client.vercel.app/](https://aigis-client.vercel.app/) *(Update this to your exact Vercel URL!)*
+**URL**: https://aigis-client.vercel.app/ 
 
-Built with React.js, Vite, SCSS, Axios and React Router.
+Built with React.js, Vite, SCSS, MySQL.
 
 ## Features
 - **Secure Authentication**: Login flow with protected route handling
