@@ -5,7 +5,7 @@ function AccountSummaryCard({
   cardLabel = "Card",
   cardValue = "*****3456",
   amountLabel = "Amount",
-  amountValue = "$1,2446.84",
+  amountValue = "$1,446.84",
 }) {
   return (
     <section className="acct-card" aria-labelledby="acct-card-title">
