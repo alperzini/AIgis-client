@@ -65,4 +65,4 @@ Ensure you configure any required environment variables (e.g. duplicating `env.e
 npm run dev
 ```
 
-6. Open the local link (usually `http://localhost:5173`) in your browser to view the project!
+6. Open the local link (example `http://localhost:5173`) in your browser to view the project!
